@@ -1,1 +1,1 @@
-# izzy-print-sku
+# Izzy Print SKU
