@@ -24,3 +24,23 @@ main{
     margin-right: 4%;
     padding: 1% 16%;
 }
+
+.shirt-table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+}
+
+.shirt-table th, .shirt-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.shirt-table th {
+    background-color: #f2f2f2;
+}
+
+.shirt-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
