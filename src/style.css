@@ -1,0 +1,26 @@
+main{
+    display: flex;
+}
+
+
+.block{
+    display: inline-block;
+    width: 350px;
+    padding: 10px;
+}
+
+#estampa{
+    display: flex;
+    justify-content: center;
+    width: 97%;
+}
+
+.botao-grid{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botao{
+    margin-right: 4%;
+    padding: 1% 16%;
+}

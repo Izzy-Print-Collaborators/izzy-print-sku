@@ -4,152 +4,130 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title> Izzy Print</title>
 </head>
-<body>
-    <style>
-        .checkbox-round {
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-    </style>
-
-    <img src="data:image/png;base64,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" alt="Descrição da Imagem">
-
-    <header> 
-        <h1>SKU code generator</h1>
-    </header>
+<body>   
     <main>
-        <label from Cliente>Nome do cliente:</label>
-        <input 
-            type="text"
-            name="Cliente"
-            id="cliente"
-        >
-        <br>
+        <form>
+            <div>
+                <div class="block">
+                    <img src="data:image/png;base64,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" alt="Descrição da Imagem"
+                    width="350px" height="350px"
+                    >    
+                    <label>NOME DA ESTAMPA</label>
+                    <input
+                        id="estampa" 
+                        type="text"
+                        name="estampa"
+                        id="estampa"
+                    >
+                    <br>
+                    <fieldset class="grid-item">
+                        <legend> LOCAL DA ESTAMPA: </legend>
+                            <br>  
+                            <input type="radio" id="frente" name="local" value="FR">
+                            <label for="frente">FRENTE</label>
+                            <br>
 
-        <label from Estampa>Nome da estampa:</label>
-        <input 
-            type="text"
-            name="Estampa"
-            id="estampa"
-        >
-        <br> <br>
+                            <input type="radio" id="costas" name="local" value="CO">
+                            <label for="costas">COSTAS</label>
+                            <br>
 
-        <label> Tamanho da estampa: </label>
-        <br>
+                            <input type="radio" id="ambas" name="local" value="FC">
+                            <label for="costas">FRENTE E COSTAS</label>
+                            <br><br>
+                    </fieldset>
+                </div>
 
-        <input type="checkbox" id="tamanhoA4" name="Tamanho[]" value="A4" class="checkbox-round">
-        <label for="tamanhoA4">A4</label><br>
+                <div class="block">
+                    <fieldset class="grid-item"> 
+                        <legend> MODELAGEM: </legend>
+                            <br>
+                            <input type="radio" name="modelagem" value="ST">
+                            <label for="modelagem">CAMISETA STREET</label> 
+                            <br>
         
-        <input type="checkbox" id="tamanhoA3" name="Tamanho[]" value="A3" class="checkbox-round">
-        <label for="tamanhoA3">A3</label><br>
+                            <input type="radio" name="modelagem" value="CL">
+                            <label for="modelagem">CAMISETA CLÁSSICA</label> 
+                            <br>
         
-        <input type="checkbox" id="tamanhoA2" name="Tamanho[]" value="A2" class="checkbox-round">
-        <label for="tamanhoA2">A2</label><br>
-        <br> <br>
-
-        <label> Tipo da impressão: </label>
-        <br>
-        <input type="checkbox" id="impressaoClara" name="impressao[]" value="CL" class="checkbox-round">
-        <label for="impressaoClara">Impressão Clara</label><br>
+                            <input type="radio" name="modelagem" value="ES">
+                            <label for="modelagem">CAMISETA BABYLOOK FEMININA</label> 
+                            <br>
         
-        <input type="checkbox" id="impressaoEscura" name="impressao[]" value="ES" class="checkbox-round">
-        <label for="impressaoEscura">Impressão Escura</label><br>
-        <br> <br>
-
-        <label> Local da estampa: </label>
-        <br>
-        <input type="checkbox" id="frente" name="Local" value="FR" class="checkbox-round">
-        <label for="frente">Frente</label><br>
-
-        <input type="checkbox" id="costas" name="Local" value="CO" class="checkbox-round">
-        <label for="costas">Costas</label><br>
+                            <input type="radio" name="modelagem" value="IN">
+                            <label for="modelagem">CAMISETA INFANTIL</label> 
+                            <br>
         
-        <input type="checkbox" id="ambas" name="Local" value="FC" class="checkbox-round">
-        <label for="ambas">Ambas</label><br>
+                            <input type="radio" name="modelagem" value="MC">
+                            <label for="modelagem">CAMISETA GOLA CARECA</label> 
+                            <br>
+        
+                            <input type="radio" name="modelagem" value="MG">
+                            <label for="modelagem">CAMISETA CANGURU</label> 
+                            <br><br>
+                    </fieldset>
 
-        </select>
-        <br> <br>
+                    <br>
 
-        <label for="cores"> MODELAGEM: </label> 
-        <br>
-            
-        <label><input type="checkbox" id="ST" name="modelagem," value="ST"> Camiseta Street</label> 
+                    <fieldset class="grid-item">
+                        <legend> CORES: </legend>
+                            <br>  
+                            <input type="checkbox" id="BR" name="branco" value="BR">
+                            <label for="branco">BRANCO</label> 
+                            <br>
+                            <input type="checkbox" id="PR" name="preta" value="PR"> 
+                            <label for="preta">PRETA</label>
+                            <br>
+                            <input type="checkbox" id="CM" name="cinzaMescla" value="CM"> 
+                            <label for="cinzaMescla">CINZA MESCLA</label>
+                            <br>
+                            <input type="checkbox" id="EC" name="estonadaChumbo" value="EC"> 
+                            <label for="estonadaChumbo">ESTONADA CHUMBO</label>
+                            <br>
+                            <input type="checkbox" id="EM" name="estonadaMarrom" value="EM"> 
+                            <label for="estonadaMarrom">ESTONADA MARROM</label>
+                            <br>
+                            <input type="checkbox" id="LL" name="lilas" value="LL"> 
+                            <label for="lilas">LILÁS</label>
+                            <br>
+                            <input type="checkbox" id="MR" name="marrom" value="MR"> 
+                            <label for="marrom">MARROM</label>
+                            <br>
+                            <input type="checkbox" id="OW" name="offwhite" value="OW"> 
+                            <label for="offwhite">OFF-WHITE</label>
+                            <br>
+                            <input type="checkbox" id="VM" name="verdeMusgo" value="VM"> 
+                            <label for="verdeMusgo">VERDE MUSGO</label>
+                            <br>
+                            <input type="checkbox" id="VR" name="verde" value="VR"> 
+                            <label for="verde">VERDE</label>
+                            <br>
+                            <input type="checkbox" id="VE" name="vermelho" value="VE"> 
+                            <label for="vermelho">VERMELHO</label>
+                            <br>
+                            <input type="checkbox" id="AM" name="azulMarinho" value="AM"> 
+                            <label for="azulMarinho">AZUL MARINHO</label>
+                            <br>
+                            <input type="checkbox" id="AC" name="azulClaro" value="AC"> 
+                            <label for="azulClaro">AZUL CLARO</label>
+                            <br><br>
+                    </fieldset>
+                </div>
+                <br><br>
 
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="CL" name="modelagem" value="CL"> Camiseta Clássica</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="BB" name="modelagem" value="BB"> Camiseta Babylook</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="IN" name="modelagem" value="IN"> Estonada Chumbo</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="MG" name="modelagem" value="MG"> Moletom Gola Careca</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="MC" name="modelagem" value="MC"> Moletom Gola Careca</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="EB" name="modelagem" value="EB"> Ecobag</label>
+                <div class="botao-grid">
+                    <button  type="submit" class="botao">
+                        GERAR SKU
+                    </button>
 
-
-        <br> <br>
-
-        <label> Tamanho da camiseta: </label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="ST" name="modelagem[]" value="ST"> Camiseta Street</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="CL" name="modelagem[]" value="CL"> Camiseta Clássica</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="BB" name="modelagem[]" value="BB"> Camiseta Babylook</label>
-        <br>
-        <label><input type="checkbox" class="checkbox-round" id="IN" name="modelagem[]" value="IN"> Camiseta Infantil</label>
-        <br>
-        <br> 
-
-        <label for="cores"> Escolha as cores da camiseta: </label> 
-        <br>
-            
-        <label><input type="checkbox" id="BR" name="cores" value="BR"> Branco</label> 
-        <br>
-        <label><input type="checkbox" id="PR" name="cores" value="PR"> Preta</label>
-        <br>
-        <label><input type="checkbox" id="CM" name="cores" value="CM"> Cinza Mescla</label>
-        <br>
-        <label><input type="checkbox" id="EC" name="cores" value="EC"> Estonada Chumbo</label>
-        <br>
-        <label><input type="checkbox" id="LL" name="cores" value="LL"> Lilás</label>
-        <br>
-        <label><input type="checkbox" id="MR" name="cores" value="MR"> Marrom</label>
-        <br>
-        <label><input type="checkbox" id="OW" name="cores" value="OW"> Off-White</label>
-        <br>
-        <label><input type="checkbox" id="VM" name="cores" value="VM"> Verde Musgo</label>
-        <br>
-        <label><input type="checkbox" id="VR" name="cores" value="VR"> Verde</label>
-        <br>
-        <label><input type="checkbox" id="VE" name="cores" value="VE"> Vermelho</label>
-        <br>
-        <label><input type="checkbox" id="AM" name="cores" value="AM"> Azul Marinho</label>
-        <br>
-        <label><input type="checkbox" id="AC" name="cores" value="AC"> Azul Claro</label>
-        <br>
-        <br>
-
-        <style>
-            .submit{
-                width: 150px;
-                height: 50px;
-                cursor: pointer;
-            }
-        </style>
-        <button class="submit">
-            Submit
-        </button>
-        </body>
-
+                    <button  type="reset" class="botao">
+                        RESETAR 
+                    </button>
+                </div>
+            </div>
+        </form>
     </main>
-    <footer></footer>
 </body>
-
 </html>
