@@ -2,7 +2,6 @@ main{
     display: flex;
 }
 
-
 .block{
     display: inline-block;
     width: 350px;
@@ -15,9 +14,11 @@ main{
     width: 97%;
 }
 
-.botao-grid{
-    display: flex;
-    justify-content: space-evenly;
+.botaoLogin{
+
+    width: 350px;
+    height: 50px;
+    
 }
 
 .botao{
