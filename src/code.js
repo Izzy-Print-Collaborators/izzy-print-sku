@@ -14,31 +14,19 @@ function login(req, res) {
 }
 
 function processarLogin(req, res) {
-    const email = req.body.email;
-    const senha = req.body.senha;
+    const codigo = req.body.codigo;
     const erros = [];
 
-    if(email == '' ){
-        erros.push("Email está inválido");
+    if(codigo == '' || codigo){
+        
     }
-    if(senha == '' ){
-        erros.push("Senha está inválida.");
-    }
-
-    if (erros.length != 0){
-        res.send(erros);
-        return;
-    }
-
-    console.log(req.body);
-    
 }
 
 //---- codigo noss abaixo
     const express = require("express");
     const path = require("path");
     const app = express ();
-    app.use(express.static('styles'));
+    app.use(express.static('scr'));
 
     app.use(express.urlencoded());
     app.get("/formulario", formulario); //não pode ser o mesmo nome do que o post
@@ -47,7 +35,7 @@ function processarLogin(req, res) {
     app.post("/logincompleto", processarLogin);
 
     function formulario(req, res){
-        const caminho = path.join(__dirname, "index.html");
+        const caminho = path.join(__dirname, "scr","index.html");
         res.sendFile(caminho);
     }
 
@@ -118,166 +106,154 @@ function processarLogin(req, res) {
             tamanhos.push("EG");
         }
 
-        if (tamanhos.includes(EG)){
-            if (req.body.branco != null){
-                let cor = req.body.branco;
-                tamanhos.forEach(function(tamanho){
-                 let i = 0;
-                 let skuBranco = [];
-                 skuBranco[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-                 console.log(skuBranco[i]);
-                 i++
-                })
-            }
-            if (req.body.preto != null){
-                let cor = req.body.preto;
-                tamanhos.forEach(function(tamanho){
-                 let i = 0;
-                 let skuPreto = [];
-                 skuPreto[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-                 console.log(skuPreto[i]);
-                 i++
-                })
-            }
-            if (req.body.offWhite != null){
-                let cor = req.body.offWhite;
-                tamanhos.forEach(function(tamanho){
-                 let i = 0;
-                 let skuOffWhite = [];
-                 skuOffWhite[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-                 console.log(skuOffWhite[i]);
-                 i++
-                })
-            }
-        }
         if (req.body.branco != null){
             let cor = req.body.branco;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuBranco = [];
-             skuBranco[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuBranco[i]);
-             i++
+                let i = 0;
+                let skuBranco = [];
+                skuBranco[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                console.log(skuBranco[i]);
+                i++
             })
         }
         if (req.body.preto != null){
             let cor = req.body.preto;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuPreto = [];
-             skuPreto[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuPreto[i]);
-             i++
+                let i = 0;
+                let skuPreto = [];
+                skuPreto[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                console.log(skuPreto[i]);
+                i++
             })
         }
         if (req.body.cinzaMescla != null){
             let cor = req.body.cinzaMescla;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuCinzaMescla = [];
-             skuCinzaMescla[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuCinzaMescla[i]);
-             i++
+                let i = 0;
+                let skuCinzaMescla = [];
+                skuCinzaMescla[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuCinzaMescla[i]);
+                }
+                i++
             })
         }
         if (req.body.estonadaChumbo != null){
             let cor = req.body.estonadaChumbo;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuEstonadaChumbo = [];
-             skuEstonadaChumbo[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuEstonadaChumbo[i]);
-             i++
+                let i = 0;
+                let skuEstonadaChumbo = [];
+                skuEstonadaChumbo[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuEstonadaChumbo[i]);
+                }
+                i++
             })
         }
         if (req.body.estonadaMarrom != null){
             let cor = req.body.estonadaMarrom;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuEstonadaMarrom = [];
-             skuEstonadaMarrom[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuEstonadaMarrom[i]);
-             i++
+                let i = 0;
+                let skuEstonadaMarrom = [];
+                skuEstonadaMarrom[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuEstonadaMarrom[i]);
+                }
+                i++
             })
         }
         if (req.body.lilas != null){
             let cor = req.body.lilas;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuLilas = [];
-             skuLilas[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuLilas[i]);
-             i++
+                let i = 0;
+                let skuLilas = [];
+                skuLilas[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuLilas[i]);
+                }
+                i++
             })
         }
         if (req.body.marrom != null){
             let cor = req.body.marrom;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuMarrom = [];
-             skuMarrom[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuMarrom[i]);
-             i++
+                let i = 0;
+                let skuMarrom = [];
+                skuMarrom[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuMarrom[i]);
+                }
+                i++
             })
         }
         if (req.body.offWhite != null){
             let cor = req.body.offWhite;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuOffWhite = [];
-             skuOffWhite[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuOffWhite[i]);
-             i++
+                let i = 0;
+                let skuOffWhite = [];
+                skuOffWhite[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                console.log(skuOffWhite[i]);
+                i++
             })
         }
         if (req.body.verdeMusgo != null){
             let cor = req.body.verdeMusgo;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuVerdeMusgo = [];
-             skuVerdeMusgo[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuVerdeMusgo[i]);
-             i++
+                let i = 0;
+                let skuVerdeMusgo = [];
+                skuVerdeMusgo[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuVerdeMusgo[i]);
+                }
+                i++
             })
         }
         if (req.body.verde != null){
             let cor = req.body.verde;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuVerde = [];
-             skuVerde[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuVerde[i]);
-             i++
+                let i = 0;
+                let skuVerde = [];
+                skuVerde[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuVerde[i]);
+                }
+                i++
             })
         }
         if (req.body.vermelho != null){
             let cor = req.body.vermelho;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuVermelho = [];
-             skuVermelho[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuVermelho[i]);
-             i++
+                let i = 0;
+                let skuVermelho = [];
+                skuVermelho[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuVermelho[i]);
+                }
+                i++
             })
         }
         if (req.body.azulMarinho != null){
             let cor = req.body.azulMarinho;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuAzulMarinho = [];
-             skuAzulMarinho[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuAzulMarinho[i]);
-             i++
+                let i = 0;
+                let skuAzulMarinho = [];
+                skuAzulMarinho[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuAzulMarinho[i]);
+                }
+                i++
             })
         }
         if (req.body.azulClaro != null){
             let cor = req.body.azulClaro;
             tamanhos.forEach(function(tamanho){
-             let i = 0;
-             let skuAzulClaro = [];
-             skuAzulClaro[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-             console.log(skuAzulClaro[i]);
-             i++
+                let i = 0;
+                let skuAzulClaro = [];
+                skuAzulClaro[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                if (tamanho =! "EG"){
+                    console.log(skuAzulClaro[i]);
+                }
+                i++
             })
         }
         res.send("SKU CODE feito com sucesso!")
