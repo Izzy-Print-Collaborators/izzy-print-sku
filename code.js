@@ -7,36 +7,37 @@
 // caminho = __dirname(pega o diretorio local)/pages/registro.html
 
 
-function login(req, res) {
-    res.status(303)
-    const caminho = path.join(__dirname,"pages", "login.html");
-    res.sendFile(caminho);
-}
-
-function processarLogin(req, res) {
-    const codigo = req.body.codigo;
-    const erros = [];
-
-    if(codigo == '' || codigo){
-        
-    }
-}
-
 //---- codigo noss abaixo
     const express = require("express");
     const path = require("path");
     const app = express ();
-    app.use(express.static('scr'));
+    app.use(express.static('src'));
 
     app.use(express.urlencoded());
     app.get("/formulario", formulario); //não pode ser o mesmo nome do que o post
     app.post("/formulario", processarFormulario);
-    app.post("/login", login);
-    app.post("/logincompleto", processarLogin);
+    app.get("/login", login);
+    app.post("/login", processarLogin);
 
     function formulario(req, res){
-        const caminho = path.join(__dirname, "scr","index.html");
+        const caminho = path.join(__dirname,"src", "pages","formulario.html");
         res.sendFile(caminho);
+    }
+
+    function gerarSKU(skuCor) {
+        if (skuCor != null){
+            let cor = skuCor;
+            tamanhos.forEach(function(tamanho){
+                let i = 0;
+                if (tamanho =! "EG" ){ //arrumar!!!!!!!!!
+                    let skuTemp = [];
+                    skuTemp[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                    console.log(skuBranco[i]);
+                }
+                i++
+            })
+            sku = sku.concat(skuTemp)
+        }
     }
 
     function processarFormulario(req, res){
@@ -106,6 +107,9 @@ function processarLogin(req, res) {
             tamanhos.push("EG");
         }
 
+        let sku = []; 
+        gerarSKU(req.body.branco)
+
         if (req.body.branco != null){
             let cor = req.body.branco;
             tamanhos.forEach(function(tamanho){
@@ -115,6 +119,7 @@ function processarLogin(req, res) {
                 console.log(skuBranco[i]);
                 i++
             })
+            sku = sku.concat(skuBranco)
         }
         if (req.body.preto != null){
             let cor = req.body.preto;
@@ -125,18 +130,20 @@ function processarLogin(req, res) {
                 console.log(skuPreto[i]);
                 i++
             })
+            sku = sku.concat(skuPreto)
         }
         if (req.body.cinzaMescla != null){
             let cor = req.body.cinzaMescla;
+            let i = 0;
+            let skuCinzaMescla = [];
             tamanhos.forEach(function(tamanho){
-                let i = 0;
-                let skuCinzaMescla = [];
-                skuCinzaMescla[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
                 if (tamanho =! "EG"){
+                skuCinzaMescla[i]  = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
                     console.log(skuCinzaMescla[i]);
                 }
                 i++
             })
+            sku = sku.concat(skuCinzaMescla)
         }
         if (req.body.estonadaChumbo != null){
             let cor = req.body.estonadaChumbo;
@@ -149,6 +156,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuEstonadaChumbo)
         }
         if (req.body.estonadaMarrom != null){
             let cor = req.body.estonadaMarrom;
@@ -161,6 +169,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuEstonadaMarrom)
         }
         if (req.body.lilas != null){
             let cor = req.body.lilas;
@@ -173,6 +182,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuLilas)
         }
         if (req.body.marrom != null){
             let cor = req.body.marrom;
@@ -185,6 +195,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuMarrom)
         }
         if (req.body.offWhite != null){
             let cor = req.body.offWhite;
@@ -195,6 +206,7 @@ function processarLogin(req, res) {
                 console.log(skuOffWhite[i]);
                 i++
             })
+            sku = sku.concat(skuOffWhite)
         }
         if (req.body.verdeMusgo != null){
             let cor = req.body.verdeMusgo;
@@ -207,6 +219,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuVerdeMusgo)
         }
         if (req.body.verde != null){
             let cor = req.body.verde;
@@ -219,6 +232,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuVerde)
         }
         if (req.body.vermelho != null){
             let cor = req.body.vermelho;
@@ -231,6 +245,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuVermelho)
         }
         if (req.body.azulMarinho != null){
             let cor = req.body.azulMarinho;
@@ -243,6 +258,7 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuAzulMarinho)
         }
         if (req.body.azulClaro != null){
             let cor = req.body.azulClaro;
@@ -255,8 +271,30 @@ function processarLogin(req, res) {
                 }
                 i++
             })
+            sku = sku.concat(skuAzulClaro)
         }
-        res.send("SKU CODE feito com sucesso!")
+    }
+
+    function login(req, res) {
+        res.status(303)
+        const caminho = path.join(__dirname, "src", "pages", "login.html");
+        res.sendFile(caminho);
+    }
+    
+    function processarLogin(req, res) {
+        const codigo = req.body.codigo;
+        
+    
+        if(codigo == 'SP3065791' || codigo == 'mateusmeuamor'){
+            res.status(301);
+            res.header("Location", "/formulario");
+            res.send();
+        }
+        else{
+            res.status(302);
+            res.header("Location", "/login")
+            res.send("Digite um código valido")
+        }
         
     }
 
