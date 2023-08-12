@@ -1,4 +1,6 @@
 function gerarSKU() {
+    const skuContainer = document.getElementById("skuContainer");
+    skuContainer.innerHTML = ''; 
     let nomeEstampa = document.getElementById("estampa").value;
     nomeEstampa = nomeEstampa.replace(/\s/g, '');
 
@@ -53,6 +55,28 @@ function gerarSKU() {
         { key: 'azulClaro', allowClara: false, allowEG: false }
     ];
 
+    let empresa = document.getElementById("opcoes").value;
+
+    if(empresa.toUpperCase().includes('AGED')){
+        empresa = "01";
+    }
+    else if(empresa.toUpperCase().includes('SOCCER')){
+        empresa = "02";
+    }
+    else if(empresa.toUpperCase().includes('XAPO')){
+        empresa = "03";
+    }
+    else if(empresa.toUpperCase().includes('STUFF')){
+        empresa = "04";
+    }
+    else if(empresa.toUpperCase().includes('POESIA')){
+        empresa = "05";
+    }
+    else {
+        alert("Empresa não cadastrada. Por favor contatar Izzy Print");
+        return ;
+    }
+
     cores.forEach(corConfig => {
         const corMarcada = document.getElementById(corConfig.key).checked;
         const cor = document.getElementById(corConfig.key).value;
@@ -68,19 +92,13 @@ function gerarSKU() {
             tamanhos.forEach(tamanho => {
                 if (corConfig.allowEG || tamanho != 'EG') {
 
-                    let empresa = document.getElementById("opcoes").value;
+                    
                     let skuItem = '';
 
-                    if(local == "FC") {
-                        skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + modelagem + cor + tamanho + "-F";
-                        skuCor.push(skuItem);
-                        skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + modelagem + cor + tamanho + "-C";
-                        skuCor.push(skuItem);
-                            
-                    } else {
-                        skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-                        skuCor.push(skuItem);
-                    }
+
+                    skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                    skuCor.push(skuItem);
+                    
                 }
             });
 
@@ -96,10 +114,6 @@ function gerarSKU() {
     });        
 }
 
-function limparSKUs() {
-    const skuContainer = document.getElementById("skuContainer");
-    skuContainer.innerHTML = ''; 
-}
 
 function copiarSKU(sku) {
     const textarea = document.createElement('textarea');

@@ -22,13 +22,14 @@
                         >
                         
                         <label for="opcoes">NOME DA EMPRESA:</label> <br>
-                        <select id="opcoes" name="opcao" required>
-                            <option value="01">AGED</option>
-                            <option value="02">Soccer</option>
-                            <option value="03">Xapo</option>
-                            <option value="04">Stuff</option>
-                            <option value="05">Poesia viva</option>
-                        </select>
+                        <input
+                            id="opcoes" 
+                            type="text"
+                            name="opcao"
+                            placeholder="Ex: Izzy Print"
+                            required
+                        >  
+                        
                         <br><br>
 
                         <label> NOME DA ESTAMPA: </label>
@@ -46,10 +47,6 @@
                                 <br> 
                                 <input type="radio" id="frente" name="local" value="FR" required>
                                 <label for="frente">FRENTE</label>
-                                <br>
-
-                                <input type="radio" id="costas" name="local" value="CO" required>
-                                <label for="costas">COSTAS</label>
                                 <br>
 
                                 <input type="radio" id="ambas" name="local" value="FC" required>
@@ -186,7 +183,7 @@
                 </p>
                 <div class="grid-container">
                     <div id="skuContainer"></div>
-                    <button onclick="limparSKUs()" class="botao">LIMPAR</button>
+                   
                 </div>
             </div>
         </div>
