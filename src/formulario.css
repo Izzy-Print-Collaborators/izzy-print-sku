@@ -7,8 +7,8 @@ main{
     font-family: 'Comfortaa', cursive;
     flex-direction: column;
 }
-select{
-    width: 347px;
+#opcoes{
+    width: 340px;
     border: 2px solid;
     border-radius: 5px;
 }
@@ -38,7 +38,7 @@ fieldset{
     font-size: 14px;
     color: rgb(135, 135, 135);
    }
-   
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 780px) );
@@ -91,4 +91,9 @@ fieldset{
 .botao{
     padding: 1% 16%;
     border-radius: 50px;
+}
+
+.botao:hover{
+    transform: scale(110%);
+    transition: all 0.2s ease;
 }
