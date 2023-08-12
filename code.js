@@ -126,10 +126,10 @@
         ];
 
         cores.forEach(corConfig => {
-            const cor = req.body[corConfig.key];
+            const cor = corConfig.key;
             if (cor !== null) {
-                const i = 0;
-                const skuCor = [];
+                let i = 0;
+                let skuCor = [];
 
                 tamanhos.forEach(tamanho => {
                 if (corConfig.allowEG || tamanho != 'EG') {
@@ -144,7 +144,7 @@
         });
 
         sku.forEach(codigoSKU => {
-            let grid = document.getElementById("grid-item");
+            let grid = html.document.getElementById("grid-item").innerHTML;
             grid.textContent = `<div class="grid-item"> ${codigoSKU} </div>`
         })
     }
