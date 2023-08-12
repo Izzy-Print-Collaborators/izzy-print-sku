@@ -76,10 +76,11 @@ function gerarSKU() {
             sku = sku.concat(skuCor);
         }
     });
+    document.querySelector("#invisivel").style.display = "block";
 
     sku.forEach(codigo => {
         const skuContainer = document.getElementById("skuContainer");
-        skuContainer.innerHTML += `<p>${codigo} <button onclick="copiarSKU('${codigo}')" class="botao-copiar">Copiar</button></p>`;
+        skuContainer.innerHTML += `<p class="grid-item"><button onclick="copiarSKU('${codigo}')" class="botao-copiar">${codigo}</button></p>`;
     });        
 }
 
