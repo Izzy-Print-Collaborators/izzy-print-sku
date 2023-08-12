@@ -16,6 +16,11 @@ input{
     border-radius: 5px;
 }
 
+input::placeholder{
+    color: rgb(191, 191, 191);
+
+}
+
 fieldset{
     border-radius: 10px;
 }
