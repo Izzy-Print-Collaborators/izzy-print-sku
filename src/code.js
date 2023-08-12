@@ -1,4 +1,3 @@
-
 function gerarSKU() {
     let nomeEstampa = document.getElementById("estampa").value;
     nomeEstampa = nomeEstampa.replace(/\s/g, '');
@@ -70,15 +69,16 @@ function gerarSKU() {
                 if (corConfig.allowEG || tamanho != 'EG') {
 
                     let empresa = document.getElementById("opcoes").value;
+                    let skuItem = '';
 
                     if(local == "FC") {
-                        let skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + modelagem + cor + tamanho + "-F";
+                        skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + modelagem + cor + tamanho + "-F";
                         skuCor.push(skuItem);
                         skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + modelagem + cor + tamanho + "-C";
                         skuCor.push(skuItem);
                             
                     } else {
-                        let skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                        skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
                         skuCor.push(skuItem);
                     }
                 }

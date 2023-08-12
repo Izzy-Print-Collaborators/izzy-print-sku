@@ -12,13 +12,13 @@ select{
     border: 2px solid;
     border-radius: 5px;
 }
+
 input{
     border-radius: 5px;
 }
 
 input::placeholder{
     color: rgb(191, 191, 191);
-
 }
 
 fieldset{
@@ -28,16 +28,17 @@ fieldset{
     text-align: center;
 }
 
-.nota{
- font-size: 14px;
- color: rgb(135, 135, 135);
-}
 #invisivel{
     display: none;
     width: 790px;
     text-align: justify;
 }
 
+.nota{
+    font-size: 14px;
+    color: rgb(135, 135, 135);
+   }
+   
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 780px) );
