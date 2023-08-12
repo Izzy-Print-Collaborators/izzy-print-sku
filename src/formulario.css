@@ -7,7 +7,11 @@ main{
     font-family: 'Comfortaa', cursive;
     flex-direction: column;
 }
-
+select{
+    width: 347px;
+    border: 2px solid;
+    border-radius: 5px;
+}
 input{
     border-radius: 5px;
 }
@@ -15,9 +19,18 @@ input{
 fieldset{
     border-radius: 10px;
 }
+#titulo{
+    text-align: center;
+}
 
+.nota{
+ font-size: 14px;
+ color: rgb(135, 135, 135);
+}
 #invisivel{
     display: none;
+    width: 790px;
+    text-align: justify;
 }
 
 .grid-container {
@@ -35,7 +48,6 @@ fieldset{
     border: solid 2px black;
     border-radius: 25px;
     padding:20px;
-
     margin-bottom: 3%;
 }
 
@@ -60,11 +72,12 @@ fieldset{
     border: none;
     background: none;
     padding: 2% 5%;
-    border-radius: 50px;
+    border-radius: 30px;
 }
 
 .botao-copiar:hover{
     background-color: rgb(228, 228, 228);
+    border: solid  rgb(208, 208, 208);
     transform: scale(110%);
     transition: all 0.2s ease;
 }

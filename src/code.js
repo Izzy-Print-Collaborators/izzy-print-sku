@@ -68,14 +68,26 @@ function gerarSKU() {
 
             tamanhos.forEach(tamanho => {
                 if (corConfig.allowEG || tamanho != 'EG') {
-                    const skuItem = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-                    skuCor.push(skuItem);
+
+                    let empresa = document.getElementById("opcoes").value;
+
+                    if(local == "FC") {
+                        let skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + modelagem + cor + tamanho + "-F";
+                        skuCor.push(skuItem);
+                        skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + modelagem + cor + tamanho + "-C";
+                        skuCor.push(skuItem);
+                            
+                    } else {
+                        let skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                        skuCor.push(skuItem);
+                    }
                 }
             });
 
             sku = sku.concat(skuCor);
         }
     });
+
     document.querySelector("#invisivel").style.display = "block";
 
     sku.forEach(codigo => {
