@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/formulario.css">
+    <link rel="stylesheet" href="formulario.css">
     <link rel="icon" href="https://www.izzyprint.com.br/wp-content/uploads/2020/04/cropped-LOGO-IZZY-PRETO_DIFERENTE-1-192x192.png" sizes="192x192" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 <body>   
     <main>
         <div>
-            <form action="/formulario" method="post">
+            <form onsubmit="gerarSKU(); return false;">
                 <div class="border">
                     <div class="block">
                         <img src="data:image/png;base64,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" alt="Descrição da Imagem"
@@ -40,7 +40,7 @@
                                 <br>
 
                                 <input type="radio" id="ambas" name="local" value="FC">
-                                <label for="costas">FRENTE E COSTAS</label>
+                                <label for="ambas">FRENTE E COSTAS</label>
                                 <br><br>
                         </fieldset>
                     </div>
@@ -79,43 +79,43 @@
                         <fieldset>
                             <legend> CORES: </legend>
                                 <br>  
-                                <input type="checkbox" id="BR" name="branco" value="BR">
-                                <label for="branco">BRANCO</label> 
+                                <input type="checkbox" id="branca" name="branca" value="BR">
+                                <label for="branco">BRANCA</label> 
                                 <br>
-                                <input type="checkbox" id="PR" name="preta" value="PR"> 
+                                <input type="checkbox" id="preta" name="preta" value="PR"> 
                                 <label for="preta">PRETA</label>
                                 <br>
-                                <input type="checkbox" id="CM" name="cinzaMescla" value="CM"> 
+                                <input type="checkbox" id="cinzaMescla" name="cinzaMescla" value="CM"> 
                                 <label for="cinzaMescla">CINZA MESCLA</label>
                                 <br>
-                                <input type="checkbox" id="EC" name="estonadaChumbo" value="EC"> 
+                                <input type="checkbox" id="estonadaChumbo" name="estonadaChumbo" value="EC"> 
                                 <label for="estonadaChumbo">ESTONADA CHUMBO</label>
                                 <br>
-                                <input type="checkbox" id="EM" name="estonadaMarrom" value="EM"> 
+                                <input type="checkbox" id="estonadaMarrom" name="estonadaMarrom" value="EM"> 
                                 <label for="estonadaMarrom">ESTONADA MARROM</label>
                                 <br>
-                                <input type="checkbox" id="LL" name="lilas" value="LL"> 
+                                <input type="checkbox" id="lilas" name="lilas" value="LL"> 
                                 <label for="lilas">LILÁS</label>
                                 <br>
-                                <input type="checkbox" id="MR" name="marrom" value="MR"> 
+                                <input type="checkbox" id="marrom" name="marrom" value="MR"> 
                                 <label for="marrom">MARROM</label>
                                 <br>
-                                <input type="checkbox" id="OW" name="offWhite" value="OW"> 
+                                <input type="checkbox" id="offWhite" name="offWhite" value="OW"> 
                                 <label for="offwhite">OFF-WHITE</label>
                                 <br>
-                                <input type="checkbox" id="VM" name="verdeMusgo" value="VM"> 
+                                <input type="checkbox" id="verdeMusgo" name="verdeMusgo" value="VM"> 
                                 <label for="verdeMusgo">VERDE MUSGO</label>
                                 <br>
-                                <input type="checkbox" id="VR" name="verde" value="VR"> 
+                                <input type="checkbox" id="verde" name="verde" value="VR"> 
                                 <label for="verde">VERDE</label>
                                 <br>
-                                <input type="checkbox" id="VE" name="vermelho" value="VE"> 
-                                <label for="vermelho">VERMELHO</label>
+                                <input type="checkbox" id="vermelha" name="vermelha" value="VE"> 
+                                <label for="vermelho">VERMELHA</label>
                                 <br>
-                                <input type="checkbox" id="AM" name="azulMarinho" value="AM"> 
+                                <input type="checkbox" id="azulMarinho" name="azulMarinho" value="AM"> 
                                 <label for="azulMarinho">AZUL MARINHO</label>
                                 <br>
-                                <input type="checkbox" id="AC" name="azulClaro" value="AC"> 
+                                <input type="checkbox" id="azulClaro" name="azulClaro" value="AC"> 
                                 <label for="azulClaro">AZUL CLARO</label>
                                 <br><br>
                         </fieldset>
@@ -140,11 +140,111 @@
             <div class="border">
                 <p> Explicação!</p>
                 <div class="grid-container">
-                    
+                    <div id="skuContainer"></div>
+                    <button onclick="limparSKUs()" class="botao">LIMPAR</button>
                 </div>
             </div>
         </div>
     </main>
+    <script>
+
+        function gerarSKU() {
+            let nomeEstampa = document.getElementById("estampa").value;
+            nomeEstampa = nomeEstampa.replace(/\s/g, '');
+
+            let char = nomeEstampa.charAt(nomeEstampa.length - 1);
+
+            if (nomeEstampa.length > 8) {
+                nomeEstampa = nomeEstampa.substring(0, 8).toUpperCase();
+            } else {
+                nomeEstampa = nomeEstampa.toUpperCase();
+                for (let i = nomeEstampa.length; i < 8; i++) {
+                    nomeEstampa += char.toUpperCase();
+                }
+            }
+
+            let local = document.querySelector('input[name=local]:checked').value;
+            let modelagem = document.querySelector('input[name=modelagem]:checked').value;
+            let tipoImpressao = '';
+
+            let tamanhos = [];
+
+            if (modelagem == 'ST') {
+                tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG', 'G1', 'G2'];
+
+            } else if (modelagem == 'CL') {
+                tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
+
+            } else if (modelagem == 'BB') {
+                tamanhos = ['P', 'PP', 'M', 'G', 'GG'];
+
+            } else if (modelagem == 'IN') {
+                tamanhos = ['02', '04', '06', '08', '10'];
+
+            } else {
+                tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
+            }
+
+            let sku = [];
+
+            const cores = [
+                { key: 'branca', allowClara: true, allowEG: true },
+                { key: 'preta', allowClara: false, allowEG: true },
+                { key: 'cinzaMescla', allowClara: false, allowEG: false },
+                { key: 'estonadaChumbo', allowClara: false, allowEG: false },
+                { key: 'estonadaMarrom', allowClara: false, allowEG: false },
+                { key: 'lilas', allowClara: false, allowEG: false },
+                { key: 'marrom', allowClara: false, allowEG: false },
+                { key: 'offWhite', allowClara: true, allowEG: true },
+                { key: 'verdeMusgo', allowClara: false, allowEG: false },
+                { key: 'verde', allowClara: false, allowEG: false },
+                { key: 'vermelha', allowClara: false, allowEG: false },
+                { key: 'azulMarinho', allowClara: false, allowEG: false },
+                { key: 'azulClaro', allowClara: false, allowEG: false }
+            ];
+
+            cores.forEach(corConfig => {
+                const corMarcada = document.getElementById(corConfig.key).checked;
+                const cor = document.getElementById(corConfig.key).value;
+                if (corMarcada) {
+                    let skuCor = [];
+
+                    if (corConfig.allowClara) {
+                        tipoImpressao = 'CL';
+                    } else {
+                        tipoImpressao = 'ES';
+                    }
+
+                    tamanhos.forEach(tamanho => {
+                        if (corConfig.allowEG || tamanho != 'EG') {
+                            const skuItem = nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
+                            skuCor.push(skuItem);
+                        }
+                    });
+
+                    sku = sku.concat(skuCor);
+                }
+            });
+
+            sku.forEach(codigo => {
+                const skuContainer = document.getElementById("skuContainer");
+                skuContainer.innerHTML += `<p>${codigo} <button onclick="copiarSKU('${codigo}')" class="botao-copiar">Copiar</button></p>`;
+            });        
+        }
+
+        function limparSKUs() {
+            const skuContainer = document.getElementById("skuContainer");
+            skuContainer.innerHTML = ''; 
+        }
+
+        function copiarSKU(sku) {
+            const textarea = document.createElement('textarea');
+            textarea.value = sku;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    </script>
 </body>
-<script src="../code.js"></script>
 </html>

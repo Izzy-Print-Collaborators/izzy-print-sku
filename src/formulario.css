@@ -11,6 +11,7 @@ main{
 input{
     border-radius: 5px;
 }
+
 fieldset{
     border-radius: 10px;
 }
@@ -51,6 +52,12 @@ fieldset{
 .botao-grid{
     display: flex;
     justify-content: space-evenly;
+}
+
+.botao-copiar{
+    padding: 1% 5%;
+    border-radius: 50px;
+    justify-content: right;
 }
 
 .botao{
