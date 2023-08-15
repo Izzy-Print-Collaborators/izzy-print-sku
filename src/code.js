@@ -22,7 +22,7 @@ function gerarSKU() {
     let tamanhos = [];
 
     if (modelagem == 'ST') {
-        tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG', 'G1', 'G2'];
+        tamanhos = ['PP', 'M', 'G', 'GG', 'EG', 'G1', 'G2'];
 
     } else if (modelagem == 'CL') {
         tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
@@ -76,10 +76,12 @@ function gerarSKU() {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
         return ;
     }
+    
+    document.querySelector("#invisivel").style.display = "block";
 
     cores.forEach(corConfig => {
         const corMarcada = document.getElementById(corConfig.key).checked;
-        const cor = document.getElementById(corConfig.key).value;
+        const cor = document.getElementById(corConfig.key);
         if (corMarcada) {
             let skuCor = [];
 
@@ -96,8 +98,13 @@ function gerarSKU() {
                     let skuItem = '';
 
 
-                    skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor + tamanho;
-                    skuCor.push(skuItem);
+                    skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor.value + tamanho;
+                    const skuContainer = document.getElementById("skuContainer");
+                    skuContainer.innerHTML += 
+                    `<p class="grid-item"> <b> Cor: </b> ${cor.name} <b> Tamanho: </b> ${tamanho}
+                        <button onclick="copiarSKU('${skuItem}')" class="botao-copiar">${skuItem}
+                        </button>
+                    </p>`;
                     
                 }
             });
@@ -106,11 +113,9 @@ function gerarSKU() {
         }
     });
 
-    document.querySelector("#invisivel").style.display = "block";
 
     sku.forEach(codigo => {
-        const skuContainer = document.getElementById("skuContainer");
-        skuContainer.innerHTML += `<p class="grid-item"><button onclick="copiarSKU('${codigo}')" class="botao-copiar">${codigo}</button></p>`;
+
     });        
 }
 
@@ -122,4 +127,6 @@ function copiarSKU(sku) {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
+    alert("Código copiado para a área de transferência");
+
 }
