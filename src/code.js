@@ -127,6 +127,5 @@ function copiarSKU(sku) {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    alert("Código copiado para a área de transferência");
 
 }
