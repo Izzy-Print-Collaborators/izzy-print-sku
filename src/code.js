@@ -22,7 +22,7 @@ function gerarSKU() {
     let tamanhos = [];
 
     if (modelagem == 'ST') {
-        tamanhos = ['PP', 'M', 'G', 'GG', 'EG', 'G1', 'G2'];
+        tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1', 'G2'];
 
     } else if (modelagem == 'CL') {
         tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
