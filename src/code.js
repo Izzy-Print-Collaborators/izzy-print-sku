@@ -43,7 +43,7 @@ function gerarSKU() {
         { key: 'branca', allowClara: true, allowEG: true },
         { key: 'preta', allowClara: false, allowEG: true },
         { key: 'cinzaMescla', allowClara: false, allowEG: false },
-        { key: 'estonadaChumbo', allowClara: false, allowEG: false },
+        { key: 'estonadaChumbo', allowClara: false, allowEG: true },
         { key: 'estonadaMarrom', allowClara: false, allowEG: false },
         { key: 'lilas', allowClara: false, allowEG: false },
         { key: 'marrom', allowClara: false, allowEG: false },
