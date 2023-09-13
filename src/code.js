@@ -22,7 +22,7 @@ function gerarSKU() {
     let tamanhos = [];
 
     if (modelagem == 'ST') {
-        tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1', 'G2'];
+        tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1', 'G2', 'G3', 'G4'];
 
     } else if (modelagem == 'CL') {
         tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
@@ -40,19 +40,19 @@ function gerarSKU() {
     let sku = [];
 
     const cores = [
-        { key: 'branca', allowClara: true, allowEG: true },
-        { key: 'preta', allowClara: false, allowEG: true },
-        { key: 'cinzaMescla', allowClara: false, allowEG: false },
+        { key: 'branca', allowClara: true, allowEG: true, allowG2: true },
+        { key: 'preta', allowClara: false, allowEG: true, allowG2: true  },
+        { key: 'cinzaMescla', allowClara: false, allowEG: true, allowG2: false  },
         { key: 'estonadaChumbo', allowClara: false, allowEG: true },
-        { key: 'estonadaMarrom', allowClara: false, allowEG: true },
-        { key: 'lilas', allowClara: false, allowEG: false },
-        { key: 'marrom', allowClara: false, allowEG: false },
-        { key: 'offWhite', allowClara: true, allowEG: true },
-        { key: 'verdeMusgo', allowClara: false, allowEG: false },
-        { key: 'verde', allowClara: false, allowEG: false },
-        { key: 'vermelha', allowClara: false, allowEG: false },
-        { key: 'azulMarinho', allowClara: false, allowEG: false },
-        { key: 'azulClaro', allowClara: false, allowEG: false }
+        { key: 'estonadaMarrom', allowClara: false, allowEG: true  },
+        { key: 'lilas', allowClara: false, allowEG: false , allowG2: false },
+        { key: 'marrom', allowClara: false, allowEG: false , allowG2: false },
+        { key: 'offWhite', allowClara: true, allowEG: true , allowG2: false },
+        { key: 'verdeMusgo', allowClara: false, allowEG: false , allowG2: false },
+        { key: 'verde', allowClara: false, allowEG: false , allowG2: false },
+        { key: 'vermelha', allowClara: false, allowEG: false , allowG2: false },
+        { key: 'azulMarinho', allowClara: false, allowEG: false , allowG2: false },
+        { key: 'azulClaro', allowClara: false, allowEG: false , allowG2: false }
     ];
 
     let empresa = document.getElementById("opcoes").value;
@@ -71,6 +71,18 @@ function gerarSKU() {
     }
     else if(empresa.toUpperCase().includes('POESIA')){
         empresa = "05";
+    }
+    else if( empresa.toUpperCase().includes('BALOVE')){
+        empresa = "06"
+    }
+    else if( empresa.toUpperCase().includes('NEW ERA')){
+        empresa = "07"
+    }
+    else if( empresa.toUpperCase().includes('MUD CONCEPT')){
+        empresa = "08"
+    }
+    else if( empresa.toUpperCase().includes('MADFERIT')){
+        empresa = "09"
     }
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
@@ -92,7 +104,7 @@ function gerarSKU() {
             }
 
             tamanhos.forEach(tamanho => {
-                if (corConfig.allowEG || tamanho != 'EG') {
+                if (corConfig.allowEG|| tamanho != 'EG' || corConfig.allowG2 || tamanho != 'G2') {
 
                     
                     let skuItem = '';
@@ -103,8 +115,9 @@ function gerarSKU() {
                     skuContainer.innerHTML += 
                     `<p class="grid-item"> <b> Cor: </b> ${cor.name} <b> Tamanho: </b> ${tamanho}
                         <button onclick="copiarSKU('${skuItem}')" class="botao-copiar">${skuItem}
-                        </button>
-                    </p>`;
+                        </button>                        
+                    </p>`
+                    ;
                     
                 }
             });
@@ -127,5 +140,6 @@ function copiarSKU(sku) {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
+
 
 }
