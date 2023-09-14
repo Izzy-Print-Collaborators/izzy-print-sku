@@ -40,9 +40,9 @@ function gerarSKU() {
     let sku = [];
 
     const cores = [
-        { key: 'branca', allowClara: true, allowEG: true, allowG2: true },
-        { key: 'preta', allowClara: false, allowEG: true, allowG2: true  },
-        { key: 'cinzaMescla', allowClara: false, allowEG: true, allowG2: false  },
+        { key: 'branca', allowClara: true, allowEG: true},
+        { key: 'preta', allowClara: false, allowEG: true },
+        { key: 'cinzaMescla', allowClara: false, allowEG: true },
         { key: 'estonadaChumbo', allowClara: false, allowEG: true },
         { key: 'estonadaMarrom', allowClara: false, allowEG: true  },
         { key: 'lilas', allowClara: false, allowEG: false , allowG2: false },
@@ -96,39 +96,29 @@ function gerarSKU() {
         const cor = document.getElementById(corConfig.key);
         if (corMarcada) {
             let skuCor = [];
-
             if (corConfig.allowClara) {
                 tipoImpressao = 'CL';
             } else {
                 tipoImpressao = 'ES';
             }
-
             tamanhos.forEach(tamanho => {
-                if (corConfig.allowEG|| tamanho != 'EG' || corConfig.allowG2 || tamanho != 'G2') {
-
+                if (corConfig.allowEG || tamanho != 'EG') {
                     
                     let skuItem = '';
-
-
                     skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor.value + tamanho;
                     const skuContainer = document.getElementById("skuContainer");
                     skuContainer.innerHTML += 
                     `<p class="grid-item"> <b> Cor: </b> ${cor.name} <b> Tamanho: </b> ${tamanho}
                         <button onclick="copiarSKU('${skuItem}')" class="botao-copiar">${skuItem}
-                        </button>                        
-                    </p>`
-                    ;
+                        </button>
+                    </p>`;
                     
                 }
             });
-
             sku = sku.concat(skuCor);
         }
     });
-
-
     sku.forEach(codigo => {
-
     });        
 }
 
