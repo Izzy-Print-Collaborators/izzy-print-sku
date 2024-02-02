@@ -84,6 +84,15 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('MADFERIT')){
         empresa = "09"
     }
+    else if( empresa.toUpperCase().includes('VISCERY')){
+        empresa = "10"
+    }
+    else if( empresa.toUpperCase().includes('GOLDERA')){
+        empresa = "11"
+    }
+    else if( empresa.toUpperCase().includes('OLDFUTURE')){
+        empresa = "11"
+    }
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
         return ;
