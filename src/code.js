@@ -91,8 +91,9 @@ function gerarSKU() {
         empresa = "11"
     }
     else if( empresa.toUpperCase().includes('OLDFUTURE')){
-        empresa = "11"
+        empresa = "12"
     }
+
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
         return ;
