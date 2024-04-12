@@ -75,22 +75,22 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('BALOVE')){
         empresa = "06"
     }
-    else if( empresa.toUpperCase().includes('NEW ERA')){
+    else if( empresa.toUpperCase().includes('NEW ERA') || empresa.toUpperCase().includes('NEW') ){
         empresa = "07"
     }
-    else if( empresa.toUpperCase().includes('MUD CONCEPT')){
+    else if( empresa.toUpperCase().includes('MUD CONCEPT') || empresa.toUpperCase().includes('MUD') ){
         empresa = "08"
     }
     else if( empresa.toUpperCase().includes('MADFERIT')){
         empresa = "09"
     }
-    else if( empresa.toUpperCase().includes('VISCERY')){
+    else if( empresa.toUpperCase().includes('VISCERY') ){
         empresa = "10"
     }
     else if( empresa.toUpperCase().includes('GOLDERA')){
         empresa = "11"
     }
-    else if( empresa.toUpperCase().includes('OLDFUTURE')){
+    else if( empresa.toUpperCase().includes('OLDFUTURE') || empresa.toUpperCase().includes('OLD')){
         empresa = "12"
     }
 
