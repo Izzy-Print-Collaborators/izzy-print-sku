@@ -11,6 +11,8 @@ main{
     width: 340px;
     border: 2px solid;
     border-radius: 5px;
+    border-color: black;
+    border-width: 1.3px;
 }
 
 input{
@@ -67,6 +69,8 @@ fieldset{
     display: flex;
     justify-content: center;
     width: 97%;
+    border-color: black;
+    border-width: 1.3px;
 }
 
 .botao-grid{
@@ -75,25 +79,54 @@ fieldset{
 }
 
 .botao-copiar{
-    border: none;
+    width: 33%;
+    display: flex; align-items: center; justify-content: center;
+
+    border-width: 1.3px;
+    border-color: black;
     background: none;
     padding: 2% 5%;
     border-radius: 30px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    margin:10px;
+    
+}
+
+.p-copiar{
+    width: 43%;
+    display: flex; align-items: center; justify-content: center;
+
+    margin:10px;
 }
 
 .botao-copiar:hover{
     background-color: rgb(228, 228, 228);
     border: solid  rgb(208, 208, 208);
     transform: scale(110%);
-    transition: all 0.2s ease;
 }
 
 .botao{
     padding: 1% 16%;
     border-radius: 50px;
+    border-color: black;
+    border-width: 1.3px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+
 }
 
 .botao:hover{
     transform: scale(110%);
-    transition: all 0.2s ease;
+}
+
+.aviso{
+    background-color: rgba(128, 128, 128, 0.189);
+    border-radius: 20px;
+    transition: all 100ms ease-in-out;
+    display: none; 
+    text-align: center;
+    padding: 9px; 
+    z-index: 1;
+    margin:10px;
 }

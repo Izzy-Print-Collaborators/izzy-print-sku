@@ -40,20 +40,21 @@ function gerarSKU() {
     let sku = [];
 
     const cores = [
-        { key: 'branca', allowClara: true, allowEG: true},
-        { key: 'preta', allowClara: false, allowEG: true },
-        { key: 'cinzaMescla', allowClara: false, allowEG: true },
-        { key: 'estonadaChumbo', allowClara: false, allowEG: true },
-        { key: 'estonadaMarrom', allowClara: false, allowEG: true  },
-        { key: 'lilas', allowClara: false, allowEG: false , allowG2: false },
-        { key: 'marrom', allowClara: false, allowEG: false , allowG2: false },
-        { key: 'offWhite', allowClara: true, allowEG: true , allowG2: false },
-        { key: 'verdeMusgo', allowClara: false, allowEG: false , allowG2: false },
-        { key: 'verde', allowClara: false, allowEG: false , allowG2: false },
-        { key: 'vermelha', allowClara: false, allowEG: false , allowG2: false },
-        { key: 'azulMarinho', allowClara: false, allowEG: false , allowG2: false },
-        { key: 'azulClaro', allowClara: false, allowEG: false , allowG2: false }
+        { key: 'branca', allowClara: true, allowEG: true, hex: '#d4d2d2' },
+        { key: 'preta', allowClara: false, allowEG: true, hex: '#000000' },
+        { key: 'cinzaMescla', allowClara: false, allowEG: true, hex: '#b0afa7' },
+        { key: 'estonadaChumbo', allowClara: false, allowEG: true, hex: '#666662' },
+        { key: 'estonadaMarrom', allowClara: false, allowEG: true, hex: '#8B4513' },
+        { key: 'lilas', allowClara: false, allowEG: false, allowG2: false, hex: '#b35fd4' },
+        { key: 'marrom', allowClara: false, allowEG: false, allowG2: false, hex: '#8B4513' },
+        { key: 'offWhite', allowClara: true, allowEG: true, allowG2: false, hex: '#d4d3ab' },
+        { key: 'verdeMusgo', allowClara: false, allowEG: false, allowG2: false, hex: '#74a148' },
+        { key: 'verde', allowClara: false, allowEG: false, allowG2: false, hex: '#78d10a' },
+        { key: 'vermelha', allowClara: false, allowEG: false, allowG2: false, hex: '#bd1c1c' },
+        { key: 'azulMarinho', allowClara: false, allowEG: false, allowG2: false, hex: '#0c3a69' },
+        { key: 'azulClaro', allowClara: false, allowEG: false, allowG2: false, hex: '#5da0e3' }
     ];
+    
 
     let empresa = document.getElementById("opcoes").value;
 
@@ -101,45 +102,60 @@ function gerarSKU() {
     
     document.querySelector("#invisivel").style.display = "block";
 
-    cores.forEach(corConfig => {
+    cores.forEach((corConfig, index1) => {
         const corMarcada = document.getElementById(corConfig.key).checked;
         const cor = document.getElementById(corConfig.key);
         if (corMarcada) {
             let skuCor = [];
-            if (corConfig.allowClara) {
-                tipoImpressao = 'CL';
-            } else {
-                tipoImpressao = 'ES';
-            }
-            tamanhos.forEach(tamanho => {
-                if (corConfig.allowEG || tamanho != 'EG') {
-                    
-                    let skuItem = '';
-                    skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor.value + tamanho;
+            let tipoImpressao = corConfig.allowClara ? 'CL' : 'ES';
+            tamanhos.forEach((tamanho, index2) => {
+                if (corConfig.allowEG || tamanho !== 'EG') {
+                    let skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor.value + tamanho;
                     const skuContainer = document.getElementById("skuContainer");
-                    skuContainer.innerHTML += 
-                    `<p class="grid-item"> <b> Cor: </b> ${cor.name} <b> Tamanho: </b> ${tamanho}
-                        <button onclick="copiarSKU('${skuItem}')" class="botao-copiar">${skuItem}
-                        </button>
-                    </p>`;
-                    
+                    var id_aviso = index1 + "" + index2;
+                    skuContainer.innerHTML +=
+                        `
+                            <div   style="display: flex;" margin:35px; >
+    
+                                <p class="p-copiar" style="color: ${corConfig.hex};" class="grid-item"> <b> Cor: </b> ${cor.name} <b> Tamanho: </b> ${tamanho}</p>
+                                <button style="color: ${corConfig.hex};" onclick="copiarSKU('${skuItem}', '${id_aviso}')" class="botao-copiar">${skuItem}</button>
+                                <div id="aviso_${id_aviso}" class="aviso"><b>SKU copiado!</b></div>
+
+                            </div>
+                        
+                        
+                        
+
+                        `
+                        
+                        ;
+
                 }
             });
             sku = sku.concat(skuCor);
         }
     });
-    sku.forEach(codigo => {
-    });        
+    
+    
+
 }
 
+var audioElement = new Audio('/src/audio/bloop-2-186531.mp3');
 
-function copiarSKU(sku) {
+function copiarSKU(sku, avisoId) {
     const textarea = document.createElement('textarea');
     textarea.value = sku;
     document.body.appendChild(textarea);
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
+    audioElement.play()
+    var aviso = document.getElementById("aviso_" + avisoId);
+    aviso.style.display = 'block';
 
-
+    setTimeout(function(){
+        aviso.style.display = 'none';
+    }, 1000); 
 }
+
+
