@@ -122,9 +122,6 @@ function gerarSKU() {
                                 <div id="aviso_${id_aviso}" class="aviso"><b>SKU copiado!</b></div>
 
                             </div>
-                        
-                        
-                        
 
                         `
                         
@@ -149,13 +146,23 @@ function copiarSKU(sku, avisoId) {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    audioElement.play()
-    var aviso = document.getElementById("aviso_" + avisoId);
-    aviso.style.display = 'block';
 
-    setTimeout(function(){
-        aviso.style.display = 'none';
-    }, 1000); 
+    var todosAvisos = document.querySelectorAll('[id^="aviso_"]');
+    todosAvisos.forEach(function(aviso) {
+        // Verifica se o ID do aviso não é igual ao ID específico que você está manipulando
+        if (aviso.id !== "aviso_" + avisoId) {
+            // Oculta o aviso
+            aviso.style.display = 'none';
+        }
+    });
+
+
+    var avisoEspecifico = document.getElementById("aviso_" + avisoId); // Corrigido para "aviso_" + avisoId
+    avisoEspecifico.style.display = 'block';
+
+
+
+    
 }
 
 

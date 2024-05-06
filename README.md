@@ -1,3 +1,4 @@
+<div align="center"></div>
 # Izzy Print SKU CODE
 Para executar o nosso programa, clique no "formulario.html" e deverá abrir uma pagina na web com o nosso SKU CODE GENERATOR. 
 Coloque os dados necessários nos campos do formulário e clique no botão "GERAR SKU".
