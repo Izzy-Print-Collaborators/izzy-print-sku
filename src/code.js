@@ -95,6 +95,12 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('OLDFUTURE') || empresa.toUpperCase().includes('OLD')){
         empresa = "12"
     }
+    else if( empresa.toUpperCase().includes('STYLTRAP')){
+        empresa = "13"
+    }
+    else if( empresa.toUpperCase().includes('CYBER')){
+        empresa = "14"
+    }
 
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
