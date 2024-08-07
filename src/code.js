@@ -52,6 +52,7 @@ function gerarSKU() {
         { key: 'verde', allowClara: false, allowEG: false, allowG2: false, hex: '#78d10a' },
         { key: 'vermelha', allowClara: false, allowEG: false, allowG2: false, hex: '#bd1c1c' },
         { key: 'azulMarinho', allowClara: false, allowEG: false, allowG2: false, hex: '#0c3a69' },
+        { key: 'marmorizadaPreta', allowClara: false, allowEG: true, allowG2: true, hex: '#000000' },
         { key: 'azulClaro', allowClara: false, allowEG: false, allowG2: false, hex: '#5da0e3' }
     ];
     
@@ -93,12 +94,6 @@ function gerarSKU() {
     }
     else if( empresa.toUpperCase().includes('OLDFUTURE') || empresa.toUpperCase().includes('OLD')){
         empresa = "12"
-    }
-    else if( empresa.toUpperCase().includes('STYLTRAP')){
-        empresa = "13"
-    }
-    else if( empresa.toUpperCase().includes('CYBER')){
-        empresa = "14"
     }
 
     else {
@@ -154,16 +149,15 @@ function copiarSKU(sku, avisoId) {
     document.body.removeChild(textarea);
 
     var todosAvisos = document.querySelectorAll('[id^="aviso_"]');
+
     todosAvisos.forEach(function(aviso) {
-        // Verifica se o ID do aviso não é igual ao ID específico que você está manipulando
         if (aviso.id !== "aviso_" + avisoId) {
-            // Oculta o aviso
             aviso.style.display = 'none';
         }
     });
 
 
-    var avisoEspecifico = document.getElementById("aviso_" + avisoId); // Corrigido para "aviso_" + avisoId
+    var avisoEspecifico = document.getElementById("aviso_" + avisoId);
     avisoEspecifico.style.display = 'block';
 
 
