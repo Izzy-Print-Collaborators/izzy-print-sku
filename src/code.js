@@ -101,6 +101,9 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('CYBER')){
         empresa = "14"
     }
+    else if( empresa.toUpperCase().includes('AGS10')){
+        empresa = "15"
+    }
 
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
