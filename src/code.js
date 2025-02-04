@@ -107,6 +107,9 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('WD4U')){
         empresa = "16"
     }
+    else if( empresa.toUpperCase().includes('DOPE')){
+        empresa = "17"
+    }
 
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
