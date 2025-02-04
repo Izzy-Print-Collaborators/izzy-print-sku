@@ -32,7 +32,7 @@ fieldset{
 
 #invisivel{
     display: none;
-    width: 790px;
+    width: 900px;
     text-align: justify;
 }
 
@@ -42,6 +42,10 @@ fieldset{
    }
 
 .grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 780px) );
     grid-gap: 5px;
@@ -111,7 +115,8 @@ fieldset{
      align-items: center;
      justify-content: center;
      flex-direction: column;
-     margin: 1rem;
+     margin-bottom: 1rem;
+     width: 100%;
 }
 
 .botao{

@@ -1,24 +1,88 @@
 document.addEventListener("DOMContentLoaded", function() {
+   info();
+});
+
+function info(){
+    const cores = [
+        { key: 'branca', name: 'Branca', hex: '#ffffff' },
+        { key: 'preta', name: 'Preta', hex: '#000000' },
+        { key: 'cinzaMescla', name: 'Cinza Mescla', hex: '#b0afa7' },
+        { key: 'estonadaChumbo', name: 'Estonada Chumbo', hex: '#666662' },
+        { key: 'estonadaMarrom', name: 'Estonada Marrom', hex: '#8B4513' },
+        { key: 'lilas', name: 'Lilás', hex: '#b35fd4' },
+        { key: 'marrom', name: 'Marrom', hex: '#8B4513' },
+        { key: 'offWhite', name: 'Off White', hex: '#d4d3ab' },
+        { key: 'verdeMusgo', name: 'Verde Musgo', hex: '#74a148' },
+        { key: 'verde', name: 'Verde', hex: '#78d10a' },
+        { key: 'vermelha', name: 'Vermelha', hex: '#bd1c1c' },
+        { key: 'azulMarinho', name: 'Azul Marinho', hex: '#0c3a69' },
+        { key: 'marmorizadaPreta', name: 'Marmorizada Preta', hex: '#000000' },
+        { key: 'azulClaro', name: 'Azul Claro', hex: '#5da0e3' }
+    ];
+    const modelos = [
+        { key: 'ST', name: 'Camiseta Street' },
+        { key: 'CB', name: 'Camiseta Boxy' },
+        { key: 'CL', name: 'Camiseta Clássica' },
+        { key: 'ES', name: 'Camiseta Babylook Feminina' },
+        { key: 'IN', name: 'Camiseta Infantil' },
+        { key: 'MG', name: 'Moletom Gola Careca' },
+        { key: 'MC', name: 'Moletom Canguru' }
+    ];
+
+    const local = [
+        { key: 'FR', name: 'Frente' },
+        { key: 'FC', name: 'Frente e Costas' },
+        { key: 'CF', name: 'Costas na Frente' }
+
+    ];
+
+
     let nomeEstampa = document.getElementById("estampa").value;
     document.getElementById("nome_camiseta").innerText = nomeEstampa;
 
-    let modelagem = document.querySelector('input[name=modelagem]:checked').value;
-    document.getElementById("modelo").innerText = modelagem;
+    let modelagem = document.querySelector('input[name="modelagem"]:checked')?.value;
 
-    let local = document.querySelector('input[name=local]:checked').value;
-    document.getElementById("localidade").innerText = local;
+    if (modelagem) {
+        document.getElementById("modelo").innerText =
+            modelos.find(m => m.key === modelagem)?.name || 'Modelo não encontrado';
+    } else {
+        document.getElementById("modelo").innerText = "Nenhum modelo selecionado";
+    }
+
+ 
+    let localEstampa = document.querySelector('input[name="local"]:checked')?.value;
+
+    if (localEstampa) {
+        document.getElementById("localidade").innerText =
+            local.find(l => l.key === localEstampa)?.name || 'Local não encontrado';
+    } else {
+        document.getElementById("localidade").innerText = "Nenhum modelo selecionado";
+    }
 
 
+    const coresContainer = document.getElementById("coresContainer");
+    let coresHTML = '';
 
-});
+    cores.forEach(corConfig => {
+        const corMarcada = document.getElementById(corConfig.key).checked;
+        if (corMarcada) {
+            coresHTML += `
+                <div style="display: flex; align-items: center; margin: 5px 0;">
+                    <div style="width: 20px; height: 20px; background-color: ${corConfig.hex}; margin-right: 10px;"></div>
+                    <span>${corConfig.name}</span>
+                </div>
+            `;
+        }
+    });
 
+    coresContainer.innerHTML = coresHTML; 
+}
 
 function gerarSKU() {
     const skuContainer = document.getElementById("skuContainer");
     skuContainer.innerHTML = ''; 
     let nomeEstampa = document.getElementById("estampa").value;
     document.getElementById("nome_camiseta").innerText = nomeEstampa;
-    
     
     nomeEstampa = nomeEstampa.replace(/\s/g, '');
 
@@ -41,27 +105,19 @@ function gerarSKU() {
 
     if (modelagem == 'ST') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1', 'G2', 'G3', 'G4'];
-
     } else if (modelagem == 'CL') {
         tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
-
     } else if (modelagem == 'BB') {
         tamanhos = ['P', 'PP', 'M', 'G'];
-
     } else if (modelagem == 'IN') {
         tamanhos = ['02', '04', '06', '08', '10'];
-
     } else if (modelagem == 'CB') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
-
-    }
-     else {
+    } else {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
     }
 
     let sku = [];
-
-    let last = 'G4'; 
 
     const cores = [
         { key: 'branca', allowClara: true, last: '', hex: '#383636' },
@@ -79,8 +135,6 @@ function gerarSKU() {
         { key: 'marmorizadaPreta', allowClara: false, last: 'G3', hex: '#000000' },
         { key: 'azulClaro', allowClara: false, last: 'G1', hex: '#5da0e3' } 
     ];
-    
-    
 
     let empresa = document.getElementById("opcoes").value;
 
@@ -173,12 +227,11 @@ function gerarSKU() {
             }
             sku = sku.concat(skuCor);
         }
-        
+        info();
+
     });
 
-var audioElement = new Audio('/src/audio/bloop-2-186531.mp3');
-
-
+    var audioElement = new Audio('/src/audio/bloop-2-186531.mp3');
 }
 
 function copiarSKU(sku, avisoId) {
@@ -197,8 +250,6 @@ function copiarSKU(sku, avisoId) {
         }
     });
 
-
     var avisoEspecifico = document.getElementById("aviso_" + avisoId);
     avisoEspecifico.style.display = 'block';
-
 }
