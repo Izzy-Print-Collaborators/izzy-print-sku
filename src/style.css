@@ -106,6 +106,14 @@ fieldset{
     transform: scale(110%);
 }
 
+.alinha{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     margin: 1rem;
+}
+
 .botao{
     padding: 1% 16%;
     border-radius: 50px;

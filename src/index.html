@@ -161,43 +161,23 @@
         </div>
         <div>
             <div id="invisivel" class="border">
-                <p id="titulo"><b> DESCRIÇÃO </b></p> <br>
-                <p> 
-                    <b> Nome da Empresa: </b> <br> Cada empresa tem um código de indentificação.
-                </p>
-                <p> 
-                    <b> Nome da Estampa: </b> <br> Idenpendente do tamanho do nome só serão pegos os primeiros 8 dígitos, caso tenha menos de 8 o próprio programa completa com a última letra.
-                </p> 
-                <p> 
-                    <b> Tamanho da Estampa: </b> <br> O tamanho de estampa que temos é o A2 (-A2-). 
-                </p>   
-                <p> 
-                    <b> Tipo de Impressão: </b> <br> Indica se a estampa é Clara (CL) ou Escura (ES). 
-                </p> 
-                <p> 
-                    <b> Localização da Estampa: </b> <br> Especifica se a estampa está na Frente (FR),
-                    Costas(CO) ou em Ambas (FC). <br> 
-                    <span class="nota">*Note que, caso tenha escolhido amabas, deverá identificar qual estampa é a da frente, e qual é a estampa das costas.
-                    <br>Frente: ROCKBRAS-A2-ESFCCLPRM-F Costas: ROCKBRAS-A2-ESFCCLPRM-C</span>
-                </p> 
-                <p> 
-                    <b> Produto Impresso: </b> <br> Identifica o tipo de camiseta, como Camiseta Street (ST),
-                    Camiseta Clássica (CL), Camiseta Babylook (BB) ou Camiseta Infantil (IN). Além do Moletom Gola Careca (MG) e Moletom Canguro (MC). 
-                </p>
-                <p> 
-                    <b> Cor da Camiseta: </b> <br> Descreve a cor da camiseta entre as opções disponíveis.
-                    Branca (BR), Preta (PR), Cinza mescla (CM), Estonada chumbo (EC), Lilás (LL), Marrom
-                    (MR), Off-white (OW), Verde musgo (VM), Verde (VR), Vermelho (VE), Azul Marinho (AM) e
-                    Azul claro (AC). 
-                </p>
-                <p> <b> Tamanho da Camiseta: </b><br> Mostra o tamanho da camiseta entre as opções
-                    disponíveis, como Tamanho PP (PP), Tamanho P (P), Tamanho M (M), Tamanho G (G), Tamanho
-                    (GG), Tamanho EG (EG), Tamanho G1 (G1), Tamanho G2 (G2). <br>
-                    <span class="nota">*Note que o tamanho EG só tem as cores preto, branco e off white!</span></p>
-                <p> 
-                    Com base nas informações do exemplo, o seu codígo SKU ficará assim: <br>
-                    <span class="nota">*Se clicar no codígo, ele será copiado para sua área de transferência.</span>
-                </p>
+                <div class="alinha" style="flex-direction: row;">
+                    <div class="alinha">
+                        <label for="nome_camiseta">Nome estampa:</label>
+                        <h3 id="nome_camiseta"> </h3>
+                    </div>
+                    
+                    <div class="alinha">
+                        <label for="modelo">Modelo estampa:</label>
+                        <h3 id="modelo"> </h3>
+                    </div>
+                    <div class="alinha">
+                        <label for="localidade">Local da estampa:</label>
+                        <h3 id="localidade"> </h3>
+                    </div>
+
+
+                </div>
                 <div  class="grid-container">
                     <div id="skuContainer"></div>
                    

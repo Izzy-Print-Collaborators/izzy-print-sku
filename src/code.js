@@ -1,7 +1,25 @@
+document.addEventListener("DOMContentLoaded", function() {
+    let nomeEstampa = document.getElementById("estampa").value;
+    document.getElementById("nome_camiseta").innerText = nomeEstampa;
+
+    let modelagem = document.querySelector('input[name=modelagem]:checked').value;
+    document.getElementById("modelo").innerText = modelagem;
+
+    let local = document.querySelector('input[name=local]:checked').value;
+    document.getElementById("localidade").innerText = local;
+
+
+
+});
+
+
 function gerarSKU() {
     const skuContainer = document.getElementById("skuContainer");
     skuContainer.innerHTML = ''; 
     let nomeEstampa = document.getElementById("estampa").value;
+    document.getElementById("nome_camiseta").innerText = nomeEstampa;
+    
+    
     nomeEstampa = nomeEstampa.replace(/\s/g, '');
 
     let char = nomeEstampa.charAt(nomeEstampa.length - 1);
@@ -46,7 +64,7 @@ function gerarSKU() {
     let last = 'G4'; 
 
     const cores = [
-        { key: 'branca', allowClara: true, last: '', hex: '#d4d2d2' },
+        { key: 'branca', allowClara: true, last: '', hex: '#383636' },
         { key: 'preta', allowClara: false, last: '', hex: '#000000' },
         { key: 'cinzaMescla', allowClara: false, last: 'G1', hex: '#b0afa7' },
         { key: 'estonadaChumbo', allowClara: false, last: 'G3', hex: '#666662' },
@@ -160,6 +178,9 @@ function gerarSKU() {
 
 var audioElement = new Audio('/src/audio/bloop-2-186531.mp3');
 
+
+}
+
 function copiarSKU(sku, avisoId) {
     const textarea = document.createElement('textarea');
     textarea.value = sku;
@@ -180,9 +201,4 @@ function copiarSKU(sku, avisoId) {
     var avisoEspecifico = document.getElementById("aviso_" + avisoId);
     avisoEspecifico.style.display = 'block';
 
-
-
-    
-    }
 }
-
