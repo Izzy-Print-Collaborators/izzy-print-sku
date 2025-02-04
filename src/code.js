@@ -28,33 +28,40 @@ function gerarSKU() {
         tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
 
     } else if (modelagem == 'BB') {
-        tamanhos = ['P', 'PP', 'M', 'G', 'GG'];
+        tamanhos = ['P', 'PP', 'M', 'G'];
 
     } else if (modelagem == 'IN') {
         tamanhos = ['02', '04', '06', '08', '10'];
 
-    } else {
-        tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
+    } else if (modelagem == 'CB') {
+        tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
+
+    }
+     else {
+        tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
     }
 
     let sku = [];
 
+    let last = 'G4'; 
+
     const cores = [
-        { key: 'branca', allowClara: true, allowEG: true, hex: '#d4d2d2' },
-        { key: 'preta', allowClara: false, allowEG: true, hex: '#000000' },
-        { key: 'cinzaMescla', allowClara: false, allowEG: true, hex: '#b0afa7' },
-        { key: 'estonadaChumbo', allowClara: false, allowEG: true, hex: '#666662' },
-        { key: 'estonadaMarrom', allowClara: false, allowEG: true, hex: '#8B4513' },
-        { key: 'lilas', allowClara: false, allowEG: false, allowG2: false, hex: '#b35fd4' },
-        { key: 'marrom', allowClara: false, allowEG: false, allowG2: false, hex: '#8B4513' },
-        { key: 'offWhite', allowClara: true, allowEG: true, allowG2: false, hex: '#d4d3ab' },
-        { key: 'verdeMusgo', allowClara: false, allowEG: false, allowG2: false, hex: '#74a148' },
-        { key: 'verde', allowClara: false, allowEG: false, allowG2: false, hex: '#78d10a' },
-        { key: 'vermelha', allowClara: false, allowEG: false, allowG2: false, hex: '#bd1c1c' },
-        { key: 'azulMarinho', allowClara: false, allowEG: false, allowG2: false, hex: '#0c3a69' },
-        { key: 'marmorizadaPreta', allowClara: false, allowEG: true, allowG2: true, hex: '#000000' },
-        { key: 'azulClaro', allowClara: false, allowEG: false, allowG2: false, hex: '#5da0e3' }
+        { key: 'branca', allowClara: true, last: '', hex: '#d4d2d2' },
+        { key: 'preta', allowClara: false, last: '', hex: '#000000' },
+        { key: 'cinzaMescla', allowClara: false, last: 'G1', hex: '#b0afa7' },
+        { key: 'estonadaChumbo', allowClara: false, last: 'G3', hex: '#666662' },
+        { key: 'estonadaMarrom', allowClara: false, last: 'G3', hex: '#8B4513' },
+        { key: 'lilas', allowClara: false, last: 'G1', hex: '#b35fd4' }, 
+        { key: 'marrom', allowClara: false, last: 'G1', hex: '#8B4513' }, 
+        { key: 'offWhite', allowClara: true, last: '', hex: '#d4d3ab' }, 
+        { key: 'verdeMusgo', allowClara: false, last: 'G2', hex: '#74a148' }, 
+        { key: 'verde', allowClara: false, last: 'G2', hex: '#78d10a' }, 
+        { key: 'vermelha', allowClara: false, last: 'G1', hex: '#bd1c1c' }, 
+        { key: 'azulMarinho', allowClara: false, last: 'G1', hex: '#0c3a69' }, 
+        { key: 'marmorizadaPreta', allowClara: false, last: 'G3', hex: '#000000' },
+        { key: 'azulClaro', allowClara: false, last: 'G1', hex: '#5da0e3' } 
     ];
+    
     
 
     let empresa = document.getElementById("opcoes").value;
@@ -124,34 +131,32 @@ function gerarSKU() {
         if (corMarcada) {
             let skuCor = [];
             let tipoImpressao = corConfig.allowClara ? 'CL' : 'ES';
-            tamanhos.forEach((tamanho, index2) => {
-                if (corConfig.allowEG || tamanho !== 'EG') {
-                    let skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor.value + tamanho;
-                    const skuContainer = document.getElementById("skuContainer");
-                    var id_aviso = index1 + "" + index2;
-                    skuContainer.innerHTML +=
-                        `
-                            <div   style="display: flex;" margin:35px; >
-    
-                                <p class="p-copiar" style="color: ${corConfig.hex};" class="grid-item"> <b> Cor: </b> ${cor.name} <b> Tamanho: </b> ${tamanho}</p>
-                                <button style="color: ${corConfig.hex};" onclick="copiarSKU('${skuItem}', '${id_aviso}')" class="botao-copiar">${skuItem}</button>
-                                <div id="aviso_${id_aviso}" class="aviso"><b>SKU copiado!</b></div>
-
-                            </div>
-
-                        `
-                        
-                        ;
-
+            
+            for (let index2 = 0; index2 < tamanhos.length; index2++) {
+                let tamanho = tamanhos[index2];
+                console.log(corConfig.last);
+                console.log(tamanho);
+        
+                if (tamanho == corConfig.last) {
+                    break; 
                 }
-            });
+        
+                let skuItem = empresa + "-" + nomeEstampa + "-A2-" + tipoImpressao + local + modelagem + cor.value + tamanho;
+                const skuContainer = document.getElementById("skuContainer");
+                var id_aviso = index1 + "" + index2;
+                skuContainer.innerHTML +=
+                    `
+                        <div style="display: flex;" margin:35px; >
+                            <p class="p-copiar" style="color: ${corConfig.hex};" class="grid-item"> <b> Cor: </b> ${cor.name} <b> Tamanho: </b> ${tamanho}</p>
+                            <button style="color: ${corConfig.hex};" onclick="copiarSKU('${skuItem}', '${id_aviso}')" class="botao-copiar">${skuItem}</button>
+                            <div id="aviso_${id_aviso}" class="aviso"><b>SKU copiado!</b></div>
+                        </div>
+                    `;
+            }
             sku = sku.concat(skuCor);
         }
+        
     });
-    
-    
-
-}
 
 var audioElement = new Audio('/src/audio/bloop-2-186531.mp3');
 
@@ -178,6 +183,6 @@ function copiarSKU(sku, avisoId) {
 
 
     
+    }
 }
-
 
