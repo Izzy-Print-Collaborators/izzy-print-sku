@@ -190,7 +190,7 @@ function gerarSKU() {
         empresa = "17"
     }
     else if( empresa.toUpperCase().includes('FX IMPORTS') || empresa.toUpperCase().includes('FX')){
-        empresa = "17"
+        empresa = "18"
     }
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
