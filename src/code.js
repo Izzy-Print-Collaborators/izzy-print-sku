@@ -191,6 +191,9 @@ function gerarSKU() {
     }
     else if( empresa.toUpperCase().includes('FX IMPORTS') || empresa.toUpperCase().includes('FX')){
         empresa = "18"
+    }    
+    else if( empresa.toUpperCase().includes('CYBER ZERO') || empresa.toUpperCase().includes('CYBERZZERO')){
+        empresa = "19"
     }
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
