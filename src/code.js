@@ -177,9 +177,6 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('STYLTRAP')){
         empresa = "13"
     }
-    else if( empresa.toUpperCase().includes('CYBER')){
-        empresa = "14"
-    }
     else if( empresa.toUpperCase().includes('AGS10')){
         empresa = "15"
     }
