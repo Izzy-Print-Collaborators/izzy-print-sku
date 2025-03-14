@@ -192,6 +192,9 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('CYBER ZERO') || empresa.toUpperCase().includes('CYBERZZERO')){
         empresa = "19"
     }
+else if( empresa.toUpperCase().includes('HERTIMA')){
+        empresa = "20"
+    }
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
         return ;
