@@ -192,6 +192,10 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('CYBER ZERO') || empresa.toUpperCase().includes('CYBERZZERO')){
         empresa = "19"
     }
+else
+if( empresa.toUpperCase().includes('SALVE') || empresa.toUpperCase().includes('SALVECRAZY')){
+        empresa = "21"
+    }
 else if( empresa.toUpperCase().includes('HERTIMA')){
         empresa = "20"
     }
