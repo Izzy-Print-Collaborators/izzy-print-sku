@@ -198,6 +198,9 @@ else if( empresa.toUpperCase().includes('SALVE') || empresa.toUpperCase().includ
 else if( empresa.toUpperCase().includes('HERTIMA')){
         empresa = "20"
     }
+else if( empresa.toUpperCase().includes('INKCT STUDIOS')|| empresa.toUpperCase().includes('INKCT')){
+        empresa = "20"
+    }
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
         return ;
