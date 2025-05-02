@@ -171,6 +171,10 @@ function gerarSKU() {
     else if( empresa.toUpperCase().includes('GOLDERA')){
         empresa = "11"
     }
+               else if( empresa.toUpperCase().includes('HOLDINGLABZ') || empresa.toUpperCase().includes('HOLDING LABZ')){
+        empresa = "24"
+
+    }
     else if( empresa.toUpperCase().includes('OLDFUTURE') || empresa.toUpperCase().includes('OLD')){
         empresa = "12"
     }
@@ -201,15 +205,14 @@ else if( empresa.toUpperCase().includes('HERTIMA')){
 else if( empresa.toUpperCase().includes('INKCT STUDIOS')|| empresa.toUpperCase().includes('INKCT')){
         empresa = "21"
     }
-   else if( empresa.toUpperCase().includes('LEECYN'){
+   else if( empresa.toUpperCase().includes('LEECYN')){
         empresa = "22"
     }
       else if( empresa.toUpperCase().includes('FORJA DOS FORTES') || empresa.toUpperCase().includes('FORJADOSFORTES')){
         empresa = "23"
     }
-           else if( empresa.toUpperCase().includes('HOLDINGLABZ') || empresa.toUpperCase().includes('HOLDING LABZ')){
-        empresa = "24"
-    }
+
+  
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
         return ;
