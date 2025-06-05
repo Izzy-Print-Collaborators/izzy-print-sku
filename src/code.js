@@ -211,6 +211,9 @@ else if( empresa.toUpperCase().includes('INKCT STUDIOS')|| empresa.toUpperCase()
       else if( empresa.toUpperCase().includes('FORJA DOS FORTES') || empresa.toUpperCase().includes('FORJADOSFORTES')){
         empresa = "23"
     }
+   else if( empresa.toUpperCase().includes('VIBRECINEMA'|| empresa.toUpperCase().includes('VIBRE CINEMA')){
+        empresa = "24"
+    }
 
   
     else {
