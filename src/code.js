@@ -113,7 +113,11 @@ function gerarSKU() {
         tamanhos = ['02', '04', '06', '08', '10'];
     } else if (modelagem == 'CB') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
-    } else {
+    }
+     else if(modelagem == 'MG'|| modelagem=='MC'){
+        tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1'];
+    }
+    else {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
     }
 
