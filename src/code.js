@@ -221,6 +221,9 @@ else if( empresa.toUpperCase().includes('INKCT STUDIOS')|| empresa.toUpperCase()
    else if( empresa.toUpperCase().includes('REALOG')|| empresa.toUpperCase().includes('REAL OG')){
         empresa = "25"
     }
+   else if( empresa.toUpperCase().includes('DRT RECORDS')|| empresa.toUpperCase().includes('DRT')){
+        empresa = "26"
+    }
   
     else {
         alert("Empresa não cadastrada. Por favor contatar Izzy Print");
