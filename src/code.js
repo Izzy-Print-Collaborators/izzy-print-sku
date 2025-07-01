@@ -142,94 +142,55 @@ function gerarSKU() {
 
     let empresa = document.getElementById("opcoes").value;
 
-    if(empresa.toUpperCase().includes('AGED')){
-        empresa = "01";
-    }
-    else if(empresa.toUpperCase().includes('SOCCER')){
-        empresa = "02";
-    }
-    else if(empresa.toUpperCase().includes('XAPO')){
-        empresa = "03";
-    }
-    else if(empresa.toUpperCase().includes('STUFF')){
-        empresa = "04";
-    }
-    else if(empresa.toUpperCase().includes('POESIA')){
-        empresa = "05";
-    }
-    else if( empresa.toUpperCase().includes('BALOVE')){
-        empresa = "06"
-    }
-    else if( empresa.toUpperCase().includes('NEW ERA') || empresa.toUpperCase().includes('NEW') ){
-        empresa = "07"
-    }
-    else if( empresa.toUpperCase().includes('MUD CONCEPT') || empresa.toUpperCase().includes('MUD') ){
-        empresa = "08"
-    }
-    else if( empresa.toUpperCase().includes('MADFERIT')){
-        empresa = "09"
-    }
-    else if( empresa.toUpperCase().includes('VISCERY') ){
-        empresa = "10"
-    }
-    else if( empresa.toUpperCase().includes('GOLDERA')){
-        empresa = "11"
-    }
-               else if( empresa.toUpperCase().includes('HOLDINGLABZ') || empresa.toUpperCase().includes('HOLDING LABZ')){
-        empresa = "24"
+const empresaOriginal = empresa.toUpperCase();
 
-    }
-    else if( empresa.toUpperCase().includes('OLDFUTURE') || empresa.toUpperCase().includes('OLD')){
-        empresa = "12"
-    }
-    else if( empresa.toUpperCase().includes('STYLTRAP')){
-        empresa = "13"
-    }
-    else if( empresa.toUpperCase().includes('AGS10')){
-        empresa = "15"
-    }
-    else if( empresa.toUpperCase().includes('WD4U')){
-        empresa = "16"
-    }
-    else if( empresa.toUpperCase().includes('DOPE')){
-        empresa = "17"
-    }
-    else if( empresa.toUpperCase().includes('FX IMPORTS') || empresa.toUpperCase().includes('FX')){
-        empresa = "18"
-    }    
-    else if( empresa.toUpperCase().includes('CYBER ZERO') || empresa.toUpperCase().includes('CYBERZZERO')){
-        empresa = "19"
-    }
-else if( empresa.toUpperCase().includes('SALVE') || empresa.toUpperCase().includes('SALVECRAZY')){
-        empresa = "21"
-    }
-else if( empresa.toUpperCase().includes('HERTIMA')){
-        empresa = "20"
-    }
-else if( empresa.toUpperCase().includes('INKCT STUDIOS')|| empresa.toUpperCase().includes('INKCT')){
-        empresa = "21"
-    }
-   else if( empresa.toUpperCase().includes('LEECYN')){
-        empresa = "22"
-    }
-      else if( empresa.toUpperCase().includes('FORJA DOS FORTES') || empresa.toUpperCase().includes('FORJADOSFORTES')){
-        empresa = "23"
-    }
-   else if( empresa.toUpperCase().includes('VIBRECINEMA')|| empresa.toUpperCase().includes('VIBRE CINEMA')){
-        empresa = "24"
-    }
-   else if( empresa.toUpperCase().includes('REALOG')|| empresa.toUpperCase().includes('REAL OG')){
-        empresa = "25"
-    }
-   else if( empresa.toUpperCase().includes('DRT RECORDS')|| empresa.toUpperCase().includes('DRT')){
-        empresa = "26"
-    }
-  
-    else {
-        alert("Empresa não cadastrada. Por favor contatar Izzy Print");
-        return ;
-    }
-    
+const empresaMap = [
+  { id: "01", keywords: ["AGED"] },
+  { id: "02", keywords: ["SOCCER"] },
+  { id: "03", keywords: ["XAPO"] },
+  { id: "04", keywords: ["STUFF"] },
+  { id: "05", keywords: ["POESIA"] },
+  { id: "06", keywords: ["BALOVE"] },
+  { id: "07", keywords: ["NEW ERA", "NEW"] },
+  { id: "08", keywords: ["MUD CONCEPT", "MUD"] },
+  { id: "09", keywords: ["MADFERIT"] },
+  { id: "10", keywords: ["VISCERY"] },
+  { id: "11", keywords: ["GOLDERA"] },
+  { id: "12", keywords: ["OLDFUTURE"] },
+  { id: "13", keywords: ["STYLTRAP"] },
+  { id: "14", keywords: ["INKCT STUDIOS", "INKCT"] },
+  { id: "15", keywords: ["AGS10"] },
+  { id: "16", keywords: ["WD4U"] },
+  { id: "17", keywords: ["DOPE"] },
+  { id: "18", keywords: ["FX IMPORTS", "FX"] },
+  { id: "19", keywords: ["CYBER ZERO", "CYBERZZERO"] },
+  { id: "20", keywords: ["HERTIMA"] },
+  { id: "21", keywords: ["SALVE", "SALVECRAZY"] },
+  { id: "22", keywords: ["LEECYN"] },
+  { id: "23", keywords: ["FORJA DOS FORTES", "FORJADOSFORTES"] },
+  { id: "24", keywords: ["HOLDINGLABZ", "HOLDING LABZ"] },
+  { id: "25", keywords: ["VIBRECINEMA", "VIBRE CINEMA"] },
+  { id: "26", keywords: ["REALOG", "REAL OG"] },
+  { id: "27", keywords: ["DRT RECORDS", "DRT"] },
+  { id: "28", keywords: ["QUEBRA COMPANY", "QUEBRACOMAPANY"] },
+];
+
+let empresaId = null;
+
+for (const item of empresaMap) {
+  if (item.keywords.some(keyword => empresaOriginal.includes(keyword))) {
+    empresaId = item.id;
+    break;
+  }
+}
+
+if (!empresaId) {
+  alert("Empresa não cadastrada. Por favor contatar Izzy Print");
+  return;
+}
+
+empresa = empresaId;
+
     document.querySelector("#invisivel").style.display = "block";
 
     cores.forEach((corConfig, index1) => {
