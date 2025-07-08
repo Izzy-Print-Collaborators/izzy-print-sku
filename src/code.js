@@ -84,10 +84,10 @@ function gerarSKU() {
     let nomeEstampa = document.getElementById("estampa").value;
     document.getElementById("nome_camiseta").innerText = nomeEstampa;
     
-    nomeEstampa = nomeEstampa.replace(/\s/g, '');
-
+    nomeEstampa = nomeEstampa.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ç/g, "c")    
+   
     let char = nomeEstampa.charAt(nomeEstampa.length - 1);
-
+    
     if (nomeEstampa.length > 8) {
         nomeEstampa = nomeEstampa.substring(0, 8).toUpperCase();
     } else {
@@ -106,15 +106,18 @@ function gerarSKU() {
     if (modelagem == 'ST') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1', 'G2', 'G3', 'G4'];
     } else if (modelagem == 'CL') {
-        tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG'];
+        tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG', 'G1'];
     } else if (modelagem == 'BB') {
-        tamanhos = ['P', 'PP', 'M', 'G'];
+        tamanhos = ['P', 'M', 'G', 'GG'];
     } else if (modelagem == 'IN') {
-        tamanhos = ['02', '04', '06', '08', '10'];
+        tamanhos = ['02', '04', '06', '08', '10', '12'];
     } else if (modelagem == 'CB') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
     }
-     else if(modelagem == 'MG'|| modelagem=='MC'){
+    else if (modelagem == 'MC'){
+        tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1']
+    }
+     else if(modelagem == 'MG'){
         tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1'];
     }
     else {
@@ -126,9 +129,9 @@ function gerarSKU() {
     const cores = [
         { key: 'branca', allowClara: true, last: '', hex: '#383636' },
         { key: 'preta', allowClara: false, last: '', hex: '#000000' },
-        { key: 'cinzaMescla', allowClara: false, last: 'G1', hex: '#b0afa7' },
-        { key: 'estonadaChumbo', allowClara: false, last: 'G3', hex: '#666662' },
-        { key: 'estonadaMarrom', allowClara: false, last: 'G3', hex: '#8B4513' },
+        { key: 'cinzaMescla', allowClara: false, last: 'G4', hex: '#b0afa7' },
+        { key: 'estonadaChumbo', allowClara: false, last: 'G4', hex: '#666662' },
+        { key: 'estonadaMarrom', allowClara: false, last: 'G4', hex: '#8B4513' },
         { key: 'lilas', allowClara: false, last: 'G1', hex: '#b35fd4' }, 
         { key: 'marrom', allowClara: false, last: 'G1', hex: '#8B4513' }, 
         { key: 'offWhite', allowClara: true, last: '', hex: '#d4d3ab' }, 
@@ -136,7 +139,7 @@ function gerarSKU() {
         { key: 'verde', allowClara: false, last: 'G2', hex: '#78d10a' }, 
         { key: 'vermelha', allowClara: false, last: 'G1', hex: '#bd1c1c' }, 
         { key: 'azulMarinho', allowClara: false, last: 'G1', hex: '#0c3a69' }, 
-        { key: 'marmorizadaPreta', allowClara: false, last: 'G3', hex: '#000000' },
+        { key: 'marmorizadaPreta', allowClara: false, last: 'G1', hex: '#000000' },
         { key: 'azulClaro', allowClara: false, last: 'G1', hex: '#5da0e3' } 
     ];
 
@@ -185,7 +188,15 @@ for (const item of empresaMap) {
 }
 
 if (!empresaId) {
-  alert("Empresa não cadastrada. Por favor contatar Izzy Print");
+    Toastify({
+      text: "Empresa não cadastrada. Por favor contatar Izzy Print",
+      duration: 3000, 
+      gravity: "top",
+      position: "center", 
+      backgroundColor: "#ff4444",
+      stopOnFocus: true 
+    }).showToast();
+
   return;
 }
 
