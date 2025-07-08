@@ -176,6 +176,9 @@ const empresaMap = [
   { id: "26", keywords: ["REALOG", "REAL OG"] },
   { id: "27", keywords: ["DRT RECORDS", "DRT"] },
   { id: "28", keywords: ["QUEBRA COMPANY", "QUEBRACOMAPANY"] },
+  { id:"29", keywords:["FTX", "FTX STUDIOS"]},
+  { id:"30", keywords:["NTS", "NTS STUDIOS"]},
+  { id:"31", keywords:["FESTIVAL MANDELAO"]},
 ];
 
 let empresaId = null;
