@@ -179,6 +179,8 @@ const empresaMap = [
   { id:"29", keywords:["FTX", "FTX STUDIOS"]},
   { id:"30", keywords:["NTS", "NTS STUDIOS"]},
   { id:"31", keywords:["FESTIVAL MANDELAO"]},
+{ id:"32", keywords:["LG COMPANY"]},
+{ id:"33", keywords:["MANDELAO WORLD"]},
 ];
 
 let empresaId = null;
