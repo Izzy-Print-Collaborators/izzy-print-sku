@@ -84,7 +84,8 @@ function gerarSKU() {
     let nomeEstampa = document.getElementById("estampa").value;
     document.getElementById("nome_camiseta").innerText = nomeEstampa;
     
-    nomeEstampa = nomeEstampa.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ç/g, "c")    
+    nomeEstampa = nomeEstampa.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ç/g, "c").replace(/[^a-zA-Z0-9 ]/g, "");   // remove tudo que não seja letra, número ou espaço
+    
    
     let char = nomeEstampa.charAt(nomeEstampa.length - 1);
     
