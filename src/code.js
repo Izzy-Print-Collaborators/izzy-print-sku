@@ -182,6 +182,8 @@ const empresaMap = [
 { id:"32", keywords:["LG COMPANY"]},
 { id:"33", keywords:["MANDELAO WORLD"]},
 { id:"34", keywords:["DATABASE"]},
+   { id:"35", keywords:["123 COMPANY", "123COMPANY"] }},
+   { id:"99", keywords:["IZZY", "IZZY PRINT"] }},
 ];
 
 let empresaId = null;
