@@ -178,13 +178,14 @@ const empresaMap = [
   { id: "28", keywords: ["QUEBRA COMPANY", "QUEBRACOMAPANY"] },
   { id:"29", keywords:["FTX", "FTX STUDIOS"]},
   { id:"30", keywords:["NTS", "NTS STUDIOS"]},
-  { id:"31", keywords:["FESTIVAL MANDELAO"]},
-{ id:"32", keywords:["LG COMPANY"]},
-{ id:"33", keywords:["MANDELAO WORLD"]},
-{ id:"34", keywords:["DATABASE"]},
-   { id:"35", keywords:["123 COMPANY", "123COMPANY"] }},
-   { id:"99", keywords:["IZZY", "IZZY PRINT"] }},
+  { id: "31", keywords: ["FESTIVAL MANDELAO"] },
+  { id: "32", keywords: ["LG COMPANY"] },
+  { id: "33", keywords: ["MANDELAO WORLD"] },
+  { id: "34", keywords: ["DATABASE"] },
+  { id: "35", keywords: ["123 COMPANY", "123COMPANY"] },
+  { id: "99", keywords: ["IZZY", "IZZY PRINT"] }
 ];
+
 
 let empresaId = null;
 
