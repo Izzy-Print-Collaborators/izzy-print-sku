@@ -184,6 +184,7 @@ const empresaMap = [
   { id: "33", keywords: ["MANDELAO WORLD"] },
   { id: "34", keywords: ["DATABASE"] },
   { id: "35", keywords: ["123 COMPANY", "123COMPANY"] },
+   { id: "36", keywords: ["BANHEIRISTAS"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT"] }
 ];
 
