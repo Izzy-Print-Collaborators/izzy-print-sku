@@ -186,6 +186,7 @@ const empresaMap = [
   { id: "35", keywords: ["123 COMPANY", "123COMPANY"] },
    { id: "36", keywords: ["BANHEIRISTAS"] },
    { id: "37", keywords: ["ANIME-SE", "ANIMESE"] },
+   { id: "38", keywords: ["EMPIRE"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT"] }
 ];
 
