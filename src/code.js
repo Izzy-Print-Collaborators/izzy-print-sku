@@ -190,6 +190,8 @@ const empresaMap = [
    { id: "39", keywords: ["AVIV"] },
    { id: "40", keywords: ["FAITH COMPANY", "FAITHCOMPANY"] },
    { id: "41", keywords: ["KING TIGER", "KINGTIGER"] },
+   { id: "42", keywords: ["TURF"] },
+   { id: "43", keywords: ["VASCON"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT"] }
 ];
 
