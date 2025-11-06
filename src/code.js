@@ -192,9 +192,10 @@ const empresaMap = [
    { id: "41", keywords: ["KING TIGER", "KINGTIGER"] },
    { id: "42", keywords: ["TURF"] },
    { id: "43", keywords: ["VASCON"] },
+   { id: "44", keywords: ["LYRICALCO", "LYRICAL CO"] },
+   { id: "45", keywords: ["FECIT CREATIONS", "FECITCREATIONS"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT"] }
 ];
-
 
 let empresaId = null;
 
