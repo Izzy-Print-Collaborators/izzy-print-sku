@@ -193,8 +193,9 @@ const empresaMap = [
    { id: "42", keywords: ["TURF"] },
    { id: "43", keywords: ["VASCON"] },
    { id: "44", keywords: ["LYRICALCO", "LYRICAL CO"] },
-   { id: "45", keywords: ["FECIT CREATIONS", "FECITCREATIONS"] },
-  { id: "99", keywords: ["IZZY", "IZZY PRINT"] }
+   { id: "46", keywords: ["XTHRIVE"] },
+   { id: "45", keywords: ["FECIT CREATIONS", "FECITCREATIONS", "FECIT"] },
+  { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
 let empresaId = null;
