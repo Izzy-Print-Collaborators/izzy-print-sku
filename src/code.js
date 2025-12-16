@@ -196,6 +196,8 @@ const empresaMap = [
    { id: "45", keywords: ["FECIT CREATIONS", "FECITCREATIONS", "FECIT"] },
    { id: "46", keywords: ["XTHRIVE"] },
    { id: "47", keywords: ["KNESSE"] },
+   { id: "48", keywords: ["ÔTEZ CLLUB", "OTEZ CLLUB"] },
+   { id: "49", keywords: ["ASPECT"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
