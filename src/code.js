@@ -198,6 +198,7 @@ const empresaMap = [
    { id: "47", keywords: ["KNESSE"] },
    { id: "48", keywords: ["ÔTEZ CLLUB", "OTEZ CLLUB"] },
    { id: "49", keywords: ["ASPECT"] },
+   { id: "50", keywords: ["EUASPECT"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
