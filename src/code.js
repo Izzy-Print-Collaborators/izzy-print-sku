@@ -204,12 +204,15 @@ const empresaMap = [
 
 let empresaId = null;
 
+const empresaNormalizada = empresaOriginal.trim().toUpperCase();
+
 for (const item of empresaMap) {
-  if (item.keywords.some(keyword => empresaOriginal.includes(keyword))) {
+  if (item.keywords.some(keyword => empresaNormalizada === keyword)) {
     empresaId = item.id;
     break;
   }
 }
+
 
 if (!empresaId) {
     Toastify({
