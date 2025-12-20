@@ -1,11 +1,9 @@
 import { Router } from "express";
-import testController from "../controllers/testController";
-import userController from "../controllers/userController";
 
-const router = Router();
+const routes = Router();
 
-router.get("/health", testController.health);
-router.get("/users", userController.getUsers);
-router.post("/user", userController.createUser);
+routes.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 
-export default router;
+export default routes;

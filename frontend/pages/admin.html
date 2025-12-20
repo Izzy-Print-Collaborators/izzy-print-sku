@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Usuários</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100">
+
+<!-- HEADER -->
+<header class="bg-indigo-600 text-white px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Painel Admin</h1>
+    <button class="text-sm bg-indigo-500 px-4 py-2 rounded hover:bg-indigo-700">
+        Sair
+    </button>
+</header>
+
+<!-- CONTEÚDO -->
+<main class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- CRIAR USUÁRIO -->
+    <section class="bg-white rounded-xl shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Criar nova conta</h2>
+
+        <form class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-600 mb-1">
+                    Nome
+                </label>
+                <input
+                        type="text"
+                        class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        required
+                />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-600 mb-1">
+                    Senha
+                </label>
+                <input
+                        type="password"
+                        class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        required
+                />
+            </div>
+
+            <div class="flex items-center gap-2">
+                <input type="checkbox" id="admin" class="accent-indigo-600">
+                <label for="admin" class="text-sm text-gray-700">
+                    Administrador
+                </label>
+            </div>
+
+            <button
+                    type="submit"
+                    class="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition"
+            >
+                Criar usuário
+            </button>
+        </form>
+    </section>
+
+    <!-- LISTA DE USUÁRIOS -->
+    <section class="bg-white rounded-xl shadow p-6 lg:col-span-2">
+        <h2 class="text-lg font-semibold mb-4">Usuários cadastrados</h2>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full border border-gray-200 rounded-lg">
+                <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">
+                        Nome
+                    </th>
+                    <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">
+                        Tipo
+                    </th>
+                    <th class="px-4 py-2 text-center text-sm font-medium text-gray-600">
+                        Ações
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody id="userTable" class="divide-y">
+                <tr>
+                    <td class="px-4 py-2">Admin</td>
+                    <td class="px-4 py-2">Administrador</td>
+                    <td class="px-4 py-2 text-center">
+                        <button class="text-red-600 hover:underline text-sm">
+                            Remover
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="px-4 py-2">João</td>
+                    <td class="px-4 py-2">Usuário</td>
+                    <td class="px-4 py-2 text-center">
+                        <button class="text-red-600 hover:underline text-sm">
+                            Remover
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>
