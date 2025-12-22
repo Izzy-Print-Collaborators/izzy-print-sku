@@ -199,6 +199,7 @@ const empresaMap = [
    { id: "48", keywords: ["ÔTEZ CLLUB", "OTEZ CLLUB"] },
    { id: "49", keywords: ["ASPECT"] },
    { id: "50", keywords: ["EUASPECT"] },
+   { id: "51", keywords: {["VICTOR LOU"],["VICTORLOU"]  },
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
