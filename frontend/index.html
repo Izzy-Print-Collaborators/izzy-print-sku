@@ -1,167 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://www.izzyprint.com.br/wp-content/uploads/2020/04/cropped-LOGO-IZZY-PRETO_DIFERENTE-1-192x192.png" sizes="192x192" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <title> Izzy Print SKU CODE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Izzy Print · Gerador de SKU</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Comfortaa', sans-serif;
+    }
+  </style>
 </head>
-<body>   
-    <main>
+
+<body class="bg-zinc-50 text-zinc-900 min-h-screen">
+
+  <main class="max-w-7xl mx-auto p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+
+    <section class="lg:col-span-2 bg-white rounded-2xl p-8 shadow-md border border-zinc-200">
+
+      <div class="flex items-center gap-4 mb-8">
+        <img
+          src="https://www.izzyprint.com.br/wp-content/uploads/2020/04/cropped-LOGO-IZZY-PRETO_DIFERENTE-1-192x192.png"
+          class="w-20 h-20 rounded-xl border border-zinc-200"
+        />
         <div>
-            <form onsubmit="gerarSKU(); return false;">
-                <div class="border">
-                    <div class="block">
-                        <img src="data:image/png;base64,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" alt="Descrição da Imagem"
-                        width="350px" height="350px"
-                        >
-                        
-                        <label for="opcoes">NOME DA EMPRESA:</label> <br>
-        
-                        <input
-                            id="opcoes" 
-                            type="text"
-                            name="opcao"
-                            placeholder="Ex: Estamparia Online"
-                            required
-                        >  
-                        
-                        <br><br>
-
-                        <label> NOME DA ESTAMPA: </label>
-                        <input
-                            id="estampa" 
-                            type="text"
-                            name="estampa"
-                            placeholder="Ex: Rock Brasileiro"
-                            maxlength="8"
-                            required
-                        >
-                        <br>
-                    
-                        <fieldset>
-                            <legend> LOCAL DA ESTAMPA: </legend>
-                                <br> 
-                                <input type="radio" id="frente" name="local" value="FR" required>
-                                <label for="frente">FRENTE</label>
-                                <br>
-
-                                <input type="radio" id="ambas" name="local" value="FC" required>
-                                <label for="ambas">FRENTE E COSTAS</label>
-                                <br>
-
-                                <input type="radio" id="costas-frente" name="local" value="CF" required>
-                                <label for="costas-frente">COSTAS NA FRENTE</label>
-                                <br>
-                        </fieldset>
-                    </div>
-
-                    <div class="block">
-                        <fieldset> 
-                            <legend> MODELAGEM: </legend>
-                                <br>
-                                <input type="radio" name="modelagem" value="ST" required>
-                                <label for="modelagem">CAMISETA STREET</label> 
-                                <br>
-
-                                <input type="radio" name="modelagem" value="CB" required>
-                                <label for="modelagem">CAMISETA BOXY</label> 
-                                <br>
-            
-                                <input type="radio" name="modelagem" value="CL" required>
-                                <label for="modelagem">CAMISETA CLÁSSICA</label> 
-                                <br>
-            
-                                <input type="radio" name="modelagem" value="ES" required>
-                                <label for="modelagem">CAMISETA BABYLOOK FEMININA</label> 
-                                <br>
-            
-                                <input type="radio" name="modelagem" value="IN" required>
-                                <label for="modelagem">CAMISETA INFANTIL</label> 
-                                <br>
-            
-                                <input type="radio" name="modelagem" value="MG" required>
-                                <label for="modelagem">MOLETOM GOLA CARECA</label> 
-                                <br>
-            
-                                <input type="radio" name="modelagem" value="MC" required>
-                                <label for="modelagem">MOLETOM CANGURU</label> 
-                                <br><br>
-                        </fieldset>
-
-                        <br>
-
-                        <fieldset>
-                            <legend> CORES: </legend>
-                                <br>  
-                                <input type="checkbox" id="branca" name="BRANCA" value="BR">
-                                <label for="branco">BRANCA</label> 
-                                <br>
-                                <input type="checkbox" id="preta" name="PRETA" value="PR"> 
-                                <label for="preta">PRETA</label>
-                                <br>  
-                                <input type="checkbox" id="marmorizadaPreta" name="MARMORIZADA PRETA" value="MP">
-                                <label for="marmorizadaPreta">MARMORIZADA PRETA</label> 
-                                <br>
-                                <input type="checkbox" id="cinzaMescla" name="CINZA MESCLA" value="CM"> 
-                                <label for="cinzaMescla">CINZA MESCLA</label>
-                                <br>
-                                <input type="checkbox" id="estonadaChumbo" name="ESTONADA CHUMBO" value="EC"> 
-                                <label for="estonadaChumbo">ESTONADA CHUMBO</label>
-                                <br>
-                                <input type="checkbox" id="estonadaMarrom" name="ESTONADA MARROM" value="EM"> 
-                                <label for="estonadaMarrom">ESTONADA MARROM</label>
-                                <br>
-                                <input type="checkbox" id="lilas" name="LILÁS" value="LL"> 
-                                <label for="lilas">LILÁS</label>
-                                <br>
-                                <input type="checkbox" id="marrom" name="MARROM" value="MR"> 
-                                <label for="marrom">MARROM</label>
-                                <br>
-                                <input type="checkbox" id="offWhite" name="OFF-WHITE" value="OW"> 
-                                <label for="offwhite">OFF-WHITE</label>
-                                <br>
-                                <input type="checkbox" id="verdeMusgo" name="VERDE MUSGO" value="VM"> 
-                                <label for="verdeMusgo">VERDE MUSGO</label>
-                                <br>
-                                <input type="checkbox" id="verde" name="VERDE" value="VR"> 
-                                <label for="verde">VERDE</label>
-                                <br>
-                                <input type="checkbox" id="vermelha" name="VERMELHA" value="VE"> 
-                                <label for="vermelho">VERMELHA</label>
-                                <br>
-                                <input type="checkbox" id="azulMarinho" name="AZUL MARINHO" value="AM"> 
-                                <label for="azulMarinho">AZUL MARINHO</label>
-                                <br>
-                                <input type="checkbox" id="azulClaro" name="AZUL CLARO" value="AC"> 
-                                <label for="azulClaro">AZUL CLARO</label>
-                                <br><br>
-                        </fieldset>
-                    </div>
-                    <br><br>
-
-                    <div class="botao-grid" >
-                        <button  type="submit" class="botao">
-                            <b>GERAR SKU</b> 
-                        </button>
-
-                        <button  type="reset" class="botao">
-                            <b>RESETAR</b>
-                            
-                        </button>
-                    </div>
-                    <br><br>
-                </div>
-            </form>
+          <h1 class="text-3xl font-bold tracking-tight">Gerador de SKU</h1>
+          <p class="text-zinc-500 text-sm">Sistema interno Izzy Print</p>
         </div>
+      </div>
+
+      <form onsubmit="gerarSKU(); return false;" class="space-y-6">
+
         <div>
+          <label class="block text-sm font-medium mb-1">Nome da empresa</label>
+          <input
+            id="opcoes"
+            type="text"
+            placeholder="Ex: Estamparia Online"
+            required
+            class="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Nome da estampa</label>
+          <input
+            id="estampa"
+            type="text"
+            maxlength="8"
+            placeholder="Ex: ROCKBRAS"
+            required
+            class="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Local -->
+          <fieldset class="border border-zinc-300 p-4 rounded-xl">
+            <legend class="text-sm font-semibold text-indigo-600 px-2">
+              Local da estampa
+            </legend>
+
+            <div class="space-y-2 mt-2">
+              <label class="flex items-center gap-2">
+                <input type="radio" id="frente" name="local" value="FR" class="accent-indigo-600">
+                Frente
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="radio" id="ambas" name="local" value="FC" class="accent-indigo-600">
+                Frente e Costas
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="radio" id="costas-frente" name="local" value="CF" class="accent-indigo-600">
+                Costas na Frente
+              </label>
+            </div>
+          </fieldset>
+
+
+          <fieldset class="border border-zinc-300 p-4 rounded-xl">
+            <legend class="text-sm font-semibold text-indigo-600 px-2">
+              Modelagem
+            </legend>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+
+          <label class="flex items-center gap-2">
+            <input type="radio" id="street" name="modelagem" value="ST" required class="accent-indigo-600">
+            Camiseta Street
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="radio" id="boxy" name="modelagem" value="CB" required class="accent-indigo-600">
+            Camiseta Boxy
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="radio" id="classica" name="modelagem" value="CL" required class="accent-indigo-600">
+            Camiseta Clássica
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="radio" id="babylook" name="modelagem" value="ES" required class="accent-indigo-600">
+            Camiseta Babylook Feminina
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="radio" id="infantil" name="modelagem" value="IN" required class="accent-indigo-600">
+            Camiseta Infantil
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="radio" id="moletomCareca" name="modelagem" value="MG" required class="accent-indigo-600">
+            Moletom Gola Careca
+          </label>
+
+          <label class="flex items-center gap-2 md:col-span-2">
+            <input type="radio" id="moletomCanguru" name="modelagem" value="MC" required class="accent-indigo-600">
+            Moletom Canguru
+          </label>
+
+        </div>
+
+          </fieldset>
+
+        </div>
+
+        <fieldset class="border border-zinc-300 p-4 rounded-xl">
+          <legend class="text-sm font-semibold text-indigo-600 px-2">
+            Cores
+          </legend>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="branca" name="BRANCA" value="BR" class="accent-indigo-600">
+            Branca
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="preta" name="PRETA" value="PR" class="accent-indigo-600">
+            Preta
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="marmorizadaPreta" name="MARMORIZADA PRETA" value="MP" class="accent-indigo-600">
+            Marmorizada Preta
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="cinzaMescla" name="CINZA MESCLA" value="CM" class="accent-indigo-600">
+            Cinza Mescla
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="estonadaChumbo" name="ESTONADA CHUMBO" value="EC" class="accent-indigo-600">
+            Estonada Chumbo
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="estonadaMarrom" name="ESTONADA MARROM" value="EM" class="accent-indigo-600">
+            Estonada Marrom
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="lilas" name="LILÁS" value="LL" class="accent-indigo-600">
+            Lilás
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="marrom" name="MARROM" value="MR" class="accent-indigo-600">
+            Marrom
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="offWhite" name="OFF-WHITE" value="OW" class="accent-indigo-600">
+            Off-white
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="verdeMusgo" name="VERDE MUSGO" value="VM" class="accent-indigo-600">
+            Verde Musgo
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="verde" name="VERDE" value="VR" class="accent-indigo-600">
+            Verde
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="vermelha" name="VERMELHA" value="VE" class="accent-indigo-600">
+            Vermelha
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="azulMarinho" name="AZUL MARINHO" value="AM" class="accent-indigo-600">
+            Azul Marinho
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="azulClaro" name="AZUL CLARO" value="AC" class="accent-indigo-600">
+            Azul Claro
+          </label>
+
+        </div>
+
+        </fieldset>
+
+        <!-- Buttons -->
+        <div class="flex gap-4 pt-4">
+          <button
+            type="submit"
+            class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white transition rounded-xl py-3 font-bold shadow"
+          >
+            Gerar SKU
+          </button>
+
+          <button
+            type="reset"
+            class="flex-1 bg-white border border-indigo-600 text-indigo-600 hover:bg-indigo-50 transition rounded-xl py-3 font-bold"
+          >
+            Resetar
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+
+    <aside class="bg-white rounded-2xl p-8 shadow-md border border-zinc-200">
+      <h2 class="text-xl font-bold text-indigo-600 mb-4">
+        Estrutura do SKU
+      </h2>
+
+      <div class="space-y-3 text-sm text-zinc-600">
+        <p><b>Empresa:</b> Código identificador.</p>
+        <p><b>Estampa:</b> Até 8 caracteres.</p>
+        <p><b>Local:</b> Frente, Costas ou Ambas.</p>
+        <p><b>Modelagem:</b> Tipo do produto.</p>
+        <p><b>Cor:</b> Variação final.</p>
             <div id="invisivel" class="border">
                 <div class="alinha" style="flex-direction: row;">
                     <div class="alinha">
@@ -188,48 +273,14 @@
                    
                 </div>
             </div>
-        </div>
-        <div class="border" style="width: 32%;">
-            <p id="titulo"><b> DESCRIÇÃO </b></p> <br>
-            <p> 
-                <b> Nome da Empresa: </b> <br> Cada empresa tem um código de indentificação.
-            </p>
-            <p> 
-                <b> Nome da Estampa: </b> <br> Idenpendente do tamanho do nome só serão pegos os primeiros 8 dígitos, caso tenha menos de 8 o próprio programa completa com a última letra.
-            </p> 
-            <p> 
-                <b> Tamanho da Estampa: </b> <br> O tamanho de estampa que temos é o A2 (-A2-). 
-            </p>   
-            <p> 
-                <b> Tipo de Impressão: </b> <br> Indica se a estampa é Clara (CL) ou Escura (ES). 
-            </p> 
-            <p> 
-                <b> Localização da Estampa: </b> <br> Especifica se a estampa está na Frente (FR),
-                Costas(CO) ou em Ambas (FC). <br> 
-                <span class="nota">*Note que, caso tenha escolhido amabas, deverá identificar qual estampa é a da frente, e qual é a estampa das costas.
-                <br>Frente: ROCKBRAS-A2-ESFCCLPRM-F Costas: ROCKBRAS-A2-ESFCCLPRM-C</span>
-            </p> 
-            <p> 
-                <b> Produto Impresso: </b> <br> Identifica o tipo de camiseta, como Camiseta Street (ST),
-                Camiseta Clássica (CL), Camiseta Boxy (CB), Camiseta Babylook (BB) ou Camiseta Infantil (IN). Além do Moletom Gola Careca (MG) e Moletom Canguro (MC). 
-            </p>
-            <p> 
-                <b> Cor da Camiseta: </b> <br> Descreve a cor da camiseta entre as opções disponíveis.
-                Branca (BR), Preta (PR), Cinza mescla (CM), Estonada chumbo (EC), Lilás (LL), Marrom
-                (MR), Off-white (OW), Verde musgo (VM), Verde (VR), Vermelho (VE), Azul Marinho (AM) e
-                Azul claro (AC). 
-            </p>
-            <p> <b> Tamanho da Camiseta: </b><br> Mostra o tamanho da camiseta entre as opções
-                disponíveis, como Tamanho PP (PP), Tamanho P (P), Tamanho M (M), Tamanho G (G), Tamanho
-                (GG), Tamanho EG (EG), Tamanho G1 (G1), Tamanho G2 (G2). <br>
-                <span class="nota">*Note que o tamanho EG só tem as cores preto, branco e off white!</span></p>
-            <p> 
-                Com base nas informações do exemplo, o seu codígo SKU ficará assim: <br>
-                <span class="nota">*Se clicar no codígo, ele será copiado para sua área de transferência.</span>
-            </p>
-        </div>
-    </main>
+        <p class="text-indigo-600 font-medium pt-2">
+          Clique no SKU gerado para copiar.
+        </p>
+      </div>
+    </aside>
 
+  </main>
     <script src="code.js"> </script>
 </body>
 </html>
+

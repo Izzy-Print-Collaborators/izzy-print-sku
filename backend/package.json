@@ -3,20 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "dev": "ts-node src/index.ts"
   },
-  "author": "JoaoAHaupt",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "description": "API for users of IZZY SKU",
+  "description": "",
   "devDependencies": {
-    "@types/express": "^5.0.6",
-    "@types/node": "^25.0.3",
+    "drizzle-kit": "^0.31.8",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "postgres": "^3.4.7"
   }
 }
