@@ -1,120 +1,177 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="h-full">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+    <!DOCTYPE html>
+    <html lang="pt-BR" class="h-full">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    </head>
 
-<body class="h-full">
+    <body class="h-full">
 
-<!-- CONTAINER PRINCIPAL -->
-<div class="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
+    <div class="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
 
-    <!-- LADO ESQUERDO (VISUAL) -->
-    <div class="hidden md:flex items-center justify-center bg-indigo-600 text-white">
-        <div class="text-center max-w-md px-6">
-            <h2 class="text-3xl font-bold mb-4">Izzy Print</h2>
-            <p class="text-indigo-100">
-                Acesso restrito a usuários autorizados pela empresa.
-            </p>
+        <div class="hidden md:flex items-center justify-center bg-indigo-600 text-white">
+            <div class="text-center max-w-md px-6">
+                <h2 class="text-3xl font-bold mb-4">Izzy Print</h2>
+                <p class="text-indigo-100">
+                    Acesso restrito a usuários autorizados pela empresa.
+                </p>
+            </div>
         </div>
-    </div>
 
-    <!-- LADO DIREITO (LOGIN) -->
-    <div class="flex items-center justify-center bg-white p-8">
-        <div class="w-full max-w-sm">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">
-                Bem-vindo 👋
-            </h1>
-            <p class="text-gray-500 mb-6">
-                Entre na sua conta para continuar
-            </p>
+        <div class="flex items-center justify-center bg-white p-8">
+            <div class="w-full max-w-sm">
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                    Bem-vindo 👋
+                </h1>
+                <p class="text-gray-500 mb-6">
+                    Entre na sua conta para continuar
+                </p>
 
-            <form class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-600 mb-1">
-                        Email
-                    </label>
-                    <input
-                            type="email"
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">
+                            Username
+                        </label>
+                        <input
+                            id="username"
+                            type="username"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             required
-                    />
-                </div>
+                        />
+                    </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-600 mb-1">
-                        Senha
-                    </label>
-                    <input
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-1">
+                            Senha
+                        </label>
+                        <input
+                            id="password"
                             type="password"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             required
-                    />
-                </div>
+                        />
+                    </div>
 
-                <button
+                    <button
                         type="submit"
                         class="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition"
-                >
-                    Entrar
-                </button>
-            </form>
+                    >
+                        Entrar
+                    </button>
+                </form>
 
-            <p class="text-sm text-gray-600 mt-4">
-                Não tem conta?
-                <button
-                        type="button"
-                        onclick="openModal()"
-                        class="text-indigo-600 hover:underline font-medium"
-                >
-                    Criar conta
-                </button>
-            </p>
+
+                <p class="text-sm text-gray-600 mt-4">
+                    Não tem conta?
+                    <button
+                            type="button"
+                            onclick="openModal()"
+                            class="text-indigo-600 hover:underline font-medium"
+                    >
+                        Criar conta
+                    </button>
+                </p>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- MODAL -->
-<div
-        id="modal"
-        class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
->
-    <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm w-full text-center">
-        <h3 class="text-xl font-bold text-gray-800 mb-2">
-            Acesso restrito
-        </h3>
-        <p class="text-gray-600 mb-4">
-            Para criar uma conta, entre em contato com a empresa para autorização.
-        </p>
+    <div
+            id="modal"
+            class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
+    >
+        <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm w-full text-center">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Acesso restrito
+            </h3>
+            <p class="text-gray-600 mb-4">
+                Para criar uma conta, entre em contato com a empresa para autorização.
+            </p>
 
-        <p class="text-lg font-semibold text-indigo-600 mb-6">
-            📞 (11) 94343-4060
-        </p>
+            <p class="text-lg font-semibold text-indigo-600 mb-6">
+                📞 (11) 94343-4060
+            </p>
 
-        <button
-                onclick="closeModal()"
-                class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
-        >
-            Entendi
-        </button>
+            <button
+                    onclick="closeModal()"
+                    class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+            >
+                Entendi
+            </button>
+        </div>
     </div>
-</div>
 
-<!-- SCRIPT -->
-<script>
-    function openModal() {
-      document.getElementById("modal").classList.remove("hidden");
-      document.getElementById("modal").classList.add("flex");
-    }
+    <script>
+        function openModal() {
+            const modal = document.getElementById("modal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
 
-    function closeModal() {
-      document.getElementById("modal").classList.add("hidden");
-      document.getElementById("modal").classList.remove("flex");
-    }
-</script>
+        function closeModal() {
+            const modal = document.getElementById("modal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
 
-</body>
-</html>
+        const form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const response = await fetch("http://localhost:3000/auth/login/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    Toastify({
+                        text: "Erro ao fazer login",
+                        duration: 3500,
+                        gravity: "top",
+                        position: "center",
+                        close: true,
+                        stopOnFocus: true,
+                        style: {
+                            background: "linear-gradient(135deg, #ff416c, #ff4b2b)",
+                            borderRadius: "12px",
+                            padding: "14px 20px",
+                            boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+                            fontSize: "14px",
+                            fontWeight: "500"
+                        }
+                    }).showToast();
+
+                    return;
+                }
+
+
+                localStorage.setItem("token", data.token);
+
+                alert("Login realizado com sucesso!");
+
+            } catch (error) {
+                console.error(error);
+                alert("Erro de conexão com o servidor");
+            }
+        });
+    </script>
+
+
+    </body>
+    </html>
