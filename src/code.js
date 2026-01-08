@@ -200,6 +200,9 @@ const empresaMap = [
    { id: "49", keywords: ["ASPECT"] },
    { id: "50", keywords: ["EUASPECT"] },
    { id: "51", keywords: ["VICTOR LOU" ,"VICTORLOU"]  },
+   { id: "52", keywords: ["JASONCOMICS"] },
+   { id: "53", keywords: ["THAGGY"] },
+   { id: "54", keywords: ["MMRCH1994"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
