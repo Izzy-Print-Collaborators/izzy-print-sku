@@ -22,6 +22,8 @@ function info(){
     const modelos = [
         { key: 'ST', name: 'Camiseta Street' },
         { key: 'CB', name: 'Camiseta Boxy' },
+        { key: 'RB', name: 'Regata Boxy' },
+        { key: 'RO', name: 'Regata Oversized' },
         { key: 'CL', name: 'Camiseta Clássica' },
         { key: 'ES', name: 'Camiseta Babylook Feminina' },
         { key: 'IN', name: 'Camiseta Infantil' },
@@ -104,7 +106,7 @@ function gerarSKU() {
 
     let tamanhos = [];
 
-    if (modelagem == 'ST') {
+    if (modelagem == 'ST' || modelagem == 'RO') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1', 'G2', 'G3', 'G4'];
     } else if (modelagem == 'CL') {
         tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG', 'G1'];
@@ -112,7 +114,7 @@ function gerarSKU() {
         tamanhos = ['P', 'M', 'G', 'GG'];
     } else if (modelagem == 'IN') {
         tamanhos = ['02', '04', '06', '08', '10', '12'];
-    } else if (modelagem == 'CB') {
+    } else if (modelagem == 'CB' || modelagem == 'RB') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG'];
     }
     else if (modelagem == 'MC'){
