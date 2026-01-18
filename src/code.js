@@ -205,6 +205,9 @@ const empresaMap = [
    { id: "52", keywords: ["JASONCOMICS"] },
    { id: "53", keywords: ["THAGGY"] },
    { id: "54", keywords: ["MMRCH1994"] },
+      { id: "55", keywords: ["STREET VERSE" ,"STREETVERSE"]  },
+         { id: "56", keywords: ["SOLTFIT"]  },
+
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
