@@ -207,6 +207,7 @@ const empresaMap = [
    { id: "54", keywords: ["MMRCH1994"] },
       { id: "55", keywords: ["STREET VERSE" ,"STREETVERSE"]  },
          { id: "56", keywords: ["SOLTFIT"]  },
+   { id: "57", keywords: ["LOYALTY TRADEMARK","LOYALTYTRADEMARK"]  },
 
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
