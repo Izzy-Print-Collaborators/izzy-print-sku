@@ -208,6 +208,9 @@ const empresaMap = [
       { id: "55", keywords: ["STREET VERSE" ,"STREETVERSE"]  },
          { id: "56", keywords: ["SOLTFIT"]  },
    { id: "57", keywords: ["LOYALTY TRADEMARK","LOYALTYTRADEMARK"]  },
+   { id: "58", keywords: ["PATIOGBA"]  },
+   { id: "59", keywords: ["BLOW"]  },
+   { id: "60", keywords: ["USUALDANCE"]  },
 
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
