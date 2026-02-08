@@ -31,10 +31,17 @@ export async function login(req: Request, res: Response) {
     });
     console.log(token);
 
-    return res.json({
-      message: 'Login realizado com sucesso',
-      token,
-    });
+    return res
+      .cookie("token", token, {
+        httpOnly: true,
+        secure: false,      // true em produção (HTTPS)
+        sameSite: "lax",
+        maxAge: 1000 * 60 * 60, // 1h
+      })
+      .json({
+        message: "Login realizado com sucesso",
+      });
+
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Erro interno do servidor' });
