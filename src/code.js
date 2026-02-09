@@ -213,7 +213,7 @@ const empresaMap = [
    { id: "60", keywords: ["USUALDANCE"]  },
    { id: "61", keywords: ["COLLECTIVE"]  },
    { id: "62", keywords: ["INSANO ARMY"]  },
-   { id: "63", keywords: ["STREET VERSE"]  },
+   
 
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
