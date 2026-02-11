@@ -6,7 +6,7 @@ export function adminMiddleware(
   next: NextFunction
 ) {
 
-  if (!req.user || req.user.admin !== true) {
+  if (!req.user || req.user.role !== "admin") {
     return res.status(403).json({ error: 'Acesso restrito a administradores' });
   }
 

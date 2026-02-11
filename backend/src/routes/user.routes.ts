@@ -1,16 +1,17 @@
 import { Router } from 'express';
 import {
 getUsers,
-createUser
+createUser,
+deleteUser,
+changePassword
 } from '../controllers/user.controller';
 import {authMiddleware} from '../middleware/auth.middleware';
 import {adminMiddleware} from '../middleware/admin.middleware';
 const router = Router();
-// Com  autentificacao e admin
-//router.get('/', [authMiddleware, adminMiddleware],getUsers);
-//router.post('/', [authMiddleware, adminMiddleware],createUser);
 
-router.get('/',getUsers);
-router.post('/',createUser);
+router.get('/', [authMiddleware, adminMiddleware],getUsers);
+router.post('/', [authMiddleware, adminMiddleware],createUser);
+router.post('/delete', [authMiddleware, adminMiddleware],deleteUser);
+router.post('/changePass', [authMiddleware, adminMiddleware],changePassword);
 
 export default router;

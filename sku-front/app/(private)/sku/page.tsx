@@ -1,9 +1,9 @@
-// app/page.tsx
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
-import Header from "../components/Header";
+import Header from "../../components/Header";
+
 
 interface Cor {
   key: string;
@@ -78,11 +78,27 @@ const GeradorSKU: React.FC = () => {
   const [coresSelecionadas, setCoresSelecionadas] = useState<string[]>([]);
   const [skuList, setSkuList] = useState<string[]>([]);
 
+
   const handleCoresChange = (key: string) => {
     setCoresSelecionadas(prev =>
       prev.includes(key) ? prev.filter(c => c !== key) : [...prev, key]
     );
   };
+  const getCookie = (name: string) => {
+    return document.cookie
+      .split("; ")
+      .find(row => row.startsWith(name + "="))
+      ?.split("=")[1];
+  };
+
+
+  useEffect(() => {
+    const empresaCookie = getCookie("empresa");
+
+    if (empresaCookie) {
+      setEmpresa(decodeURIComponent(empresaCookie));
+    }
+  }, []);
 
   const gerarSKU = () => {
     let empresaId: string | null = null;
@@ -178,9 +194,10 @@ const GeradorSKU: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="p-0 m-0">
         <Header />
         <main className="max-w-7xl mx-auto p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
               <section className="lg:col-span-2 bg-white rounded-2xl p-8 shadow-md border border-zinc-200">
                 <div className="flex items-center gap-4 mb-8">
                   <img
@@ -202,14 +219,7 @@ const GeradorSKU: React.FC = () => {
                 >
                   <div>
                     <label className="block text-sm font-medium mb-1">Nome da empresa</label>
-                    <input
-                      type="text"
-                      value={empresa}
-                      onChange={e => setEmpresa(e.target.value)}
-                      placeholder="Ex: Estamparia Online"
-                      required
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    />
+                    <h1>{empresa}</h1>
                   </div>
 
                   <div>

@@ -8,6 +8,15 @@ type User = {
   role: string;
 };
 
+const getUsers = await fetch('http//localhost:3030/users/',{
+  method: "GET",
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+  cache: "no-store",
+});
+
+
 const mockUsers: User[] = [
   { id: 1, name: "João Silva", username: "joaos", role: "Admin" },
   { id: 2, name: "Maria Souza", username: "marias", role: "Usuário" },

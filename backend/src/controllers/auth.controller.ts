@@ -5,6 +5,14 @@ import { eq } from 'drizzle-orm';
 import bcrypt from 'bcrypt';
 import { generateToken } from '../service/auth.service';
 
+export async function checkUser(req: Request, res: Response) {
+  return res.json({
+    id: req.user.sub,
+    role: req.user.role,
+    isAdmin: req.user.role === 'admin',
+  });
+}
+
 export async function login(req: Request, res: Response) {
   const { username, password } = req.body;
 
@@ -27,7 +35,7 @@ export async function login(req: Request, res: Response) {
       id: user.id,
       code: user.code,
       name: user.name,
-      admin: user.admin,
+      role: user.role,
     });
     console.log(token);
 
@@ -36,7 +44,7 @@ export async function login(req: Request, res: Response) {
         httpOnly: true,
         secure: false,      // true em produção (HTTPS)
         sameSite: "lax",
-        maxAge: 1000 * 60 * 60, // 1h
+        maxAge: 1000 * 60 * 60,
       })
       .json({
         message: "Login realizado com sucesso",
@@ -48,3 +56,7 @@ export async function login(req: Request, res: Response) {
   }
 }
 
+export async function userInfo(req:Request, res:Response){
+
+
+};

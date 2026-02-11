@@ -1,7 +1,10 @@
+"use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Header: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const router = useRouter();
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -16,13 +19,12 @@ const Header: React.FC = () => {
     alert("Abrir painel da conta");
   };
 
-  const handleAdmin = () => {
-    alert("Acesso ao painel admin");
-  };
-
+    const handleAdmin = () => {
+      router.push("/admin");
+    };
   return (
-    <header className="flex items-center justify-between mb-8 p-4 bg-white dark:bg-zinc-900 rounded-2xl shadow-md border border-zinc-200">
-      {/* Logo e título */}
+    <header className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 shadow-md border border-zinc-200">
+
       <div className="flex items-center gap-4">
         <img
           src="https://www.izzyprint.com.br/wp-content/uploads/2020/04/cropped-LOGO-IZZY-PRETO_DIFERENTE-1-192x192.png"
