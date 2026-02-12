@@ -107,7 +107,7 @@ function gerarSKU() {
 
     let tamanhos = [];
 
-    if (modelagem == 'ST' || modelagem == 'RO') {
+    if (modelagem == 'ST' || modelagem == 'RO' || modelagem == 'PE') {
         tamanhos = ['P', 'M', 'G', 'GG', 'EG', 'G1', 'G2', 'G3', 'G4'];
     } else if (modelagem == 'CL') {
         tamanhos = ['P', 'PP', 'M', 'G', 'GG', 'EG', 'G1'];
