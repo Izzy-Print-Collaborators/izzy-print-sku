@@ -33,6 +33,7 @@ function info(){
 
     const local = [
         { key: 'FR', name: 'Frente' },
+        { key: 'CC', name: 'Costas' },
         { key: 'FC', name: 'Frente e Costas' },
         { key: 'CF', name: 'Costas na Frente' }
 
@@ -213,6 +214,7 @@ const empresaMap = [
    { id: "60", keywords: ["USUALDANCE"]  },
    { id: "61", keywords: ["COLLECTIVE"]  },
    { id: "62", keywords: ["INSANO ARMY"]  },
+   { id: "63", keywords: ["CASA"]  },
    
 
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
