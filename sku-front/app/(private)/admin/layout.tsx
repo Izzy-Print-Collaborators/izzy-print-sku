@@ -6,34 +6,30 @@ export default async function PrivateLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = await cookies();
+
+  const cookieStore = await cookies(); // 🔥 AGORA É ASYNC
   const token = cookieStore.get("token")?.value;
 
   if (!token) {
     redirect("/");
   }
 
-const response = await fetch("http://localhost:3030/auth/me", {
-  method: "GET",
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-  cache: "no-store",
-});
-
+  const response = await fetch("http://localhost:3030/auth/me", {
+    headers: {
+      Cookie: `token=${token}`,
+    },
+    cache: "no-store",
+  });
 
   if (!response.ok) {
-    redirect("/sku");
+    redirect("/");
   }
 
   const user = await response.json();
-  console.log("USER /auth/me:", user);
 
-if (user.role !== "admin" && user.role !== "moderator") {
-  redirect("/sku");
-}
-
-
+  if (user.role !== "admin" && user.role !== "moderator") {
+    redirect("/sku");
+  }
 
   return <>{children}</>;
 }
