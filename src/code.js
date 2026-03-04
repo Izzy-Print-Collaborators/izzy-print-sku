@@ -216,7 +216,7 @@ const empresaMap = [
    { id: "62", keywords: ["INSANO ARMY"]  },
    { id: "63", keywords: ["CASA"]  },
    { id: "64", keywords: ["VOID", "VOID ARCHIVES"]  },
-   
+   { id: "65", keywords: ["LOS CORRES", "LOSCORRES"] },
 
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
