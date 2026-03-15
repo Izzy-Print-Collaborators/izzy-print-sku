@@ -217,6 +217,8 @@ const empresaMap = [
    { id: "63", keywords: ["CASA"]  },
    { id: "64", keywords: ["VOID", "VOID ARCHIVES"]  },
    { id: "65", keywords: ["LOS CORRES", "LOSCORRES"] },
+{ id: "66", keywords: ["LC STARS", "LCSTARS"] },
+   
 
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
