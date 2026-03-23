@@ -219,6 +219,7 @@ const empresaMap = [
    { id: "65", keywords: ["LOS CORRES", "LOSCORRES"] },
 { id: "66", keywords: ["LC STARS", "LCSTARS"] },
    { id: "67", keywords: ["OGEF"] },
+   { id: "68", keywords: ["GOLPE"] },
    
    
 
