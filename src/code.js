@@ -222,7 +222,9 @@ const empresaMap = [
    { id: "68", keywords: ["GOLPE"] },
    { id: "69", keywords: ["UNSCRIPT"] },
    { id: "70", keywords: ["WZK"] },
-   
+
+   { id: "71", keywords: ["CONTRAMODA"] },
+
    
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
