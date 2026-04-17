@@ -224,7 +224,8 @@ const empresaMap = [
    { id: "70", keywords: ["WZK"] },
 
    { id: "71", keywords: ["CONTRAMODA"] },
-
+   { id: "72", keywords: ["HIGH FULL BLESS"] },
+   { id: "73", keywords: ["ARQUIBANCADA INFERIOR 26"] },
    
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
