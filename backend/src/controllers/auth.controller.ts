@@ -49,7 +49,7 @@ export async function login(req: Request, res: Response) {
     return res
       .cookie("token", token, {
         httpOnly: true,
-        secure: false,      // true em produção (HTTPS)
+        secure: true,      // true em produção (HTTPS)
         sameSite: "lax",
         maxAge: 1000 * 60 * 60,
       })
