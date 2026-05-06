@@ -24,7 +24,7 @@ interface Local {
 }
 
 const cores: Cor[] = [
-  { key: "BR", name: "Branca", hex: "#ffffff", allowClara: true },
+  { key: "BR", name: "Branca", hex: "FFFAF0", allowClara: true },
   { key: "PR", name: "Preta", hex: "#000000", allowClara: false },
   { key: "CM", name: "Cinza Mescla", hex: "#b0afa7", allowClara: false, last: "G4" },
   { key: "EC", name: "Estonada Chumbo", hex: "#666662", allowClara: false, last: "G4" },
@@ -56,20 +56,6 @@ const locais: Local[] = [
   { key: "CF", name: "Costas na Frente" },
 ];
 
-const empresaMap = [
-  { id: "01", keywords: ["AGED"] },
-  { id: "02", keywords: ["SOCCER"] },
-  { id: "03", keywords: ["XAPO"] },
-  { id: "04", keywords: ["STUFF"] },
-  { id: "05", keywords: ["POESIA"] },
-  { id: "06", keywords: ["BALOVE"] },
-  { id: "07", keywords: ["NEW ERA", "NEW"] },
-  { id: "08", keywords: ["MUD CONCEPT", "MUD"] },
-  { id: "09", keywords: ["MADFERIT"] },
-  { id: "10", keywords: ["VISCERY"] },
-  { id: "99", keywords: ["IZZY", "IZZY PRINT", "IZZYPRINT"] },
-];
-
 const GeradorSKU: React.FC = () => {
   const [empresa, setEmpresa] = useState("");
   const [estampa, setEstampa] = useState("");
@@ -77,7 +63,8 @@ const GeradorSKU: React.FC = () => {
   const [localEstampa, setLocalEstampa] = useState("");
   const [coresSelecionadas, setCoresSelecionadas] = useState<string[]>([]);
   const [skuList, setSkuList] = useState<string[]>([]);
-
+  const [skuAtivo, setSkuAtivo] = useState<number | null>(null);
+  const [code, setCode] = useState<string | null>(null);
 
   const handleCoresChange = (key: string) => {
     setCoresSelecionadas(prev =>
@@ -91,26 +78,33 @@ const GeradorSKU: React.FC = () => {
       ?.split("=")[1];
   };
 
+  const fetchUser = async () => {
+  try {
+    const response = await fetch("http://localhost:3030/auth/me", {
+      credentials: "include",
+      cache: "no-store",
+    });
+
+    const user = await response.json();
+    console.log(user);
+
+    setEmpresa(user.nome);
+    setCode(user.code);
+    
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   useEffect(() => {
-    const empresaCookie = getCookie("empresa");
-
-    if (empresaCookie) {
-      setEmpresa(decodeURIComponent(empresaCookie));
-    }
-  }, []);
+  fetchUser();
+}, []);
 
   const gerarSKU = () => {
-    let empresaId: string | null = null;
     const nomeEmpresa = empresa.trim().toUpperCase();
-
-    for (const item of empresaMap) {
-      if (item.keywords.some(keyword => nomeEmpresa === keyword)) {
-        empresaId = item.id;
-        break;
-      }
-    }
-
+    let empresaId = String(code).padStart(2, "0");
+    console.log(code);
+    
     if (!empresaId) {
       Toastify({
         text: "Empresa não cadastrada. Por favor contatar Izzy Print",
@@ -179,20 +173,22 @@ const GeradorSKU: React.FC = () => {
     });
 
     setSkuList(novosSKUs);
+    setSkuAtivo(null);
   };
 
-  const copiarSKU = (sku: string) => {
-    navigator.clipboard.writeText(sku).then(() => {
-      Toastify({
-        text: "SKU copiado!",
-        duration: 1500,
-        gravity: "top",
-        position: "center",
-        backgroundColor: "#4caf50",
-      }).showToast();
-    });
-  };
+  const copiarSKU = (sku: string, index: number) => {
+  navigator.clipboard.writeText(sku).then(() => {
+    setSkuAtivo(index);
 
+    Toastify({
+      text: "SKU copiado!",
+      duration: 1500,
+      gravity: "top",
+      position: "center",
+      backgroundColor: "#4caf50",
+    }).showToast();
+  });
+};
   return (
     <div className="p-0 m-0">
         <Header />
@@ -301,7 +297,6 @@ const GeradorSKU: React.FC = () => {
                     <button
                       type="reset"
                       onClick={() => {
-                        setEmpresa("");
                         setEstampa("");
                         setModelagem("");
                         setLocalEstampa("");
@@ -360,23 +355,37 @@ const GeradorSKU: React.FC = () => {
                               >
                                 <div style={{ width: 20, height: 20, backgroundColor: cor?.hex, marginRight: 10 }}></div>
                                 <span>{cor?.name}</span>
+                          
                               </div>
                             );
                           })}
+                    
                         </div>
                       </div>
                       <div id="skuContainer" className="grid gap-2 mt-2">
-                        {skuList.map((sku, idx) => (
+                       {skuList.map((sku, idx) => {
+                        const skuSplited = sku.split("-");
+             
+                        const corKey = skuSplited[3].slice(6, 8);
+                        const corObj = cores.find(c => c.key === corKey);
+                        
+                        return (
                           <div key={idx} className="flex items-center gap-2">
                             <button
-                              style={{ color: "#4a90e2" }}
-                              onClick={() => copiarSKU(sku)}
-                              className="botao-copiar"
-                            >
-                              {sku}
+                              onClick={() => copiarSKU(sku, idx)}
+                              className={`botao-copiar ${
+                              skuAtivo === idx ? "font-black underline" : ""
+                            }`}
+                            style={{
+                            color: corObj?.hex || "#4a90e2",
+                            }}
+                           >
+                            {sku}
                             </button>
                           </div>
-                        ))}
+                        );
+                      })}
+
                       </div>
                     </div>
                   </div>

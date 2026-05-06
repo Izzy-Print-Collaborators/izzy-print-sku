@@ -6,8 +6,7 @@ export default async function PrivateLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  const cookieStore = await cookies(); // 🔥 AGORA É ASYNC
+  const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
   if (!token) {
@@ -31,5 +30,9 @@ export default async function PrivateLayout({
     redirect("/sku");
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+    </>
+  );
 }

@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
-import { db } from '../db'; // importa a conexão correta
+import { db } from '../db';
 import { usersTable } from '../db/schema';
 import {hashPassword} from '../utils/hash';
+import { eq } from "drizzle-orm";
 
 export async function getUsers(req: Request, res: Response) {
   try {

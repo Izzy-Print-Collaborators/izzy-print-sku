@@ -11,7 +11,7 @@ const router = Router();
 
 router.get('/', [authMiddleware, adminMiddleware],getUsers);
 router.post('/', [authMiddleware, adminMiddleware],createUser);
-router.post('/delete', [authMiddleware, adminMiddleware],deleteUser);
+router.delete('/delete', [authMiddleware, adminMiddleware],deleteUser);
 router.post('/changePass', [authMiddleware, adminMiddleware],changePassword);
 
 export default router;

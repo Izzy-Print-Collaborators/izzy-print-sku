@@ -8,9 +8,16 @@ import { generateToken } from '../service/auth.service';
 export async function checkUser(req: Request, res: Response) {
   return res.json({
     id: req.user.sub,
+    nome:req.user.name,
+    code:req.user.code,
     role: req.user.role,
     isAdmin: req.user.role === 'admin',
   });
+}
+
+export async function logout(req: Request, res: Response) {
+  res.clearCookie("token");
+  res.status(200).json({ message: "Logout realizado com sucesso" });
 }
 
 export async function login(req: Request, res: Response) {
@@ -48,6 +55,7 @@ export async function login(req: Request, res: Response) {
       })
       .json({
         message: "Login realizado com sucesso",
+        code: user.code,
       });
 
   } catch (err) {
@@ -56,7 +64,3 @@ export async function login(req: Request, res: Response) {
   }
 }
 
-export async function userInfo(req:Request, res:Response){
-
-
-};

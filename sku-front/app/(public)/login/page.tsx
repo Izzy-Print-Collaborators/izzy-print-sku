@@ -37,10 +37,10 @@ export default function Login() {
       }
 
       const data = await response.json();
+      document.cookie = `code=${encodeURIComponent(String(data.code).padStart(2,"0"))};max-age=3600; path=/; samesite=lax`;
       console.log("Login sucesso:", data);
-
-      document.cookie = `empresa=${encodeURIComponent(username)}; max-age=3600; path=/; samesite=lax`;
-
+      
+ 
       router.push("/sku");
       router.refresh();
     } catch (err: any) {
@@ -97,7 +97,6 @@ export default function Login() {
               />
             </div>
 
-            {/* mensagem de erro */}
             {error && (
               <p className="text-sm text-red-600 font-medium">{error}</p>
             )}
