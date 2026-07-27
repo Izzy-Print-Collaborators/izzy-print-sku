@@ -230,6 +230,8 @@ const empresaMap = [
    { id: "75", keywords: ["BARBELL NATION", "BARBELLNATION"] },
 
    { id: "76", keywords: ["BADDECISIONS", "BAD DECISIONS"] },
+   { id: "77", keywords: ["LUANGRAPHIC"] },
+   { id: "78", keywords: ["GIOZAKAYA"},
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
