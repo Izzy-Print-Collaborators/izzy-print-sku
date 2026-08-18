@@ -233,6 +233,7 @@ const empresaMap = [
    { id: "77", keywords: ["LUANGRAPHIC"] },
    { id: "78", keywords: ["GIOZAKAYA"] },
    { id: "79", keywords: ["GUI STORE" , "GUISTORE"] },
+   { id: "80", keywords: ["STUDIO"] },
   { id: "99", keywords: ["IZZY", "IZZY PRINT" , "IZZYPRINT"] }
 ];
 
